@@ -115,6 +115,7 @@ export default {
                 max-height: 72px;
                 float: right;
                 margin-left: 10px;
+                border-radius: 4px;
             }
         }
 
