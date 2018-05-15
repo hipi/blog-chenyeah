@@ -1,0 +1,36 @@
+{
+    "name": "chenyeah",
+    "version": "1.0.0",
+    "description": "Nuxt.js project chenyeah.com",
+    "author": "chenyeah <yuyehack@gmail.com>",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+        "precommit": "npm run lint"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "js-cookie": "^2.2.0",
+        "marked": "^0.3.19",
+        "nuxt": "1.4.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^8.2.1",
+        "eslint": "^4.15.0",
+        "eslint-friendly-formatter": "^3.0.0",
+        "eslint-loader": "^1.7.1",
+        "eslint-plugin-vue": "^4.0.0",
+        "node-sass": "^4.8.3",
+        "sass-loader": "^7.0.0"
+    },
+    "config": {
+        "nuxt": {
+            "host": "0.0.0.0",
+            "port": "3000"
+        }
+    }
+}
