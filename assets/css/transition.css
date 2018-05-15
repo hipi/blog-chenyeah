@@ -1,0 +1,10 @@
+.blog-enter-active,
+.blog-leave-active {
+    transition: opacity 1s;
+    background: url(~assets/img/blog/loading.gif) no-repeat;
+    background-position: center 50px;
+}
+.blog-enter,
+.blog-leave-active {
+    opacity: 0;
+}

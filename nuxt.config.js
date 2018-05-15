@@ -24,7 +24,10 @@ module.exports = {
             { rel: "stylesheet", href: "/css/iconfont.css" }
         ]
     },
-
+    css: [
+        // 加载一个 过渡 效果
+        "~assets/css/transition.css"
+    ],
     loading: { color: "#3cafff" },
 
     plugins: [

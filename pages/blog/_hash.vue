@@ -37,6 +37,7 @@ export default {
             titleTemplate: "%s - 羽叶丶"
         };
     },
+    transition: 'blog',
     layout: "blog",
     asyncData(context) {
         return axios
