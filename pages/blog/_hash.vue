@@ -1,5 +1,27 @@
 <template>
-    <div id="art" v-html="asyncData.content">
+    <div class="content">
+        <h1 class="title">{{asyncData.title}}</h1>
+        <div class="breadcrumb">
+            <span>
+                <i class="iconfont icon-activity"></i>
+                {{asyncData.add_time}}
+            </span>
+            <span>
+                <i class="iconfont icon-collection_fill"></i>
+            </span>
+            <span v-if="asyncData.modify_time">
+                <i class="iconfont icon-brush"></i>
+                {{asyncData.modify_time}}
+            </span>
+        </div>
+        <div class="cover">
+            <img ref="cover" :src="asyncData.cover" alt="">
+        </div>
+        <div class="info">
+            {{asyncData.info}}
+        </div>
+        <div id="article" v-html="asyncData.content">
+        </div>
     </div>
 </template>
 <script>
@@ -24,14 +46,6 @@ export default {
             .then(res => {
                 let DATA = res.data.data;
                 DATA.content = marked(DATA.content);
-                let D = `
-                            <h1>${DATA.title}</h1>
-                            <blockquote>
-                                <p>${DATA.info}</p>
-                            </blockquote>
-                            ${DATA.content}
-                        `;
-                DATA.content = D;
                 return { asyncData: DATA };
             })
             .catch(e => {
@@ -43,12 +57,57 @@ export default {
     },
     methods: {},
     computed: {},
-    mounted() {},
+    mounted() {
+        let _img = this.$refs.cover;
+        if (!_img.src) {
+            _img.src = "/img/blog/article-nopic.jpeg";
+        } else {
+            _img.onerror = function() {
+                if (!_img.classList.contains("broken")) {
+                    _img.classList.add("broken");
+                    _img.src = "/img/blog/article-nopic.jpeg";
+                }
+            };
+        }
+    },
     beforeDestroy() {}
 };
 </script>
+<style lang="scss" scoped>
+.content {
+    padding: 20px;
+}
+.title {
+    font-size: 30px;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 42px;
+    font-weight: 400;
+    text-transform: none;
+}
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.cover {
+    margin-bottom: 20px;
+    img {
+        border-radius: 4px;
+        display: block;
+    }
+}
+.info {
+    color: #de8181;
+    margin-bottom: 20px;
+    padding-left: 1em;
+    border-left: 4px solid #de8181;
+    line-height: 1.5;
+}
+</style>
+
 <style lang="scss">
-#art {
+#article {
     background: #fff;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;

@@ -5,19 +5,36 @@
         </div>
         <div class="content">
             <ul>
-                <li>
-                    <nuxt-link to="/blog">羽叶</nuxt-link>
-                </li>
-                <li>
-                    <nuxt-link to="/blog">羽叶</nuxt-link>
-                </li>
-                <li>
-                    <nuxt-link to="/blog">羽叶</nuxt-link>
+                <li v-for="(n,i) in list" :key="i">
+                    <nuxt-link :to="`/blog/${n.hash}`">{{n.title}}</nuxt-link>
                 </li>
             </ul>
         </div>
     </div>
 </template>
+<script>
+import axios from "axios";
+export default {
+    data() {
+        return {
+            list: []
+        };
+    },
+    mounted() {
+        let except = this.$route.params.hash;
+        axios
+            .post("https://api.yuyehack.cn/blog/article/get_articlelist.php", {
+                page: 1,
+                pageSize: 5,
+                except: except
+            })
+            .then(res => {
+                this.list = res.data.list;
+            });
+    }
+};
+</script>
+
 <style lang="scss" scoped>
 .cont {
     background: #fff;
@@ -47,7 +64,7 @@
             color: rgba(0, 0, 0, 0.5);
             font-size: 14px;
             line-height: 18px;
-            &:last-child{
+            &:last-child {
                 border-radius: 0 0 10px 10px;
             }
             a {
