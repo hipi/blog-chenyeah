@@ -59,13 +59,15 @@ export default {
     computed: {},
     mounted() {
         let _img = this.$refs.cover;
-        if (!_img.src) {
+        if (!_img.src || _img.src == "") {
             _img.src = "/img/blog/article-nopic.jpeg";
+            _img.setAttribute("class", "broken-img");
         } else {
             _img.onerror = function() {
-                if (!_img.classList.contains("broken")) {
-                    _img.setAttribute("class", "broken");
+                if (!_img.classList.contains("broken-img")) {
+                    _img.setAttribute("class", "broken-img");
                     _img.src = "/img/blog/article-nopic.jpeg";
+
                 }
             };
         }

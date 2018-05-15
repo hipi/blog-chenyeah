@@ -56,10 +56,11 @@ export default {
         _img.forEach(element => {
             if (!element.src) {
                 element.src = "/img/blog/article-nopic.jpeg";
+                element.setAttribute("class", "broken-img");
             } else {
                 element.onerror = function() {
-                    if (!element.classList.contains("broken")) {
-                        element.setAttribute("class", "broken");
+                    if (!element.classList.contains("broken-img")) {
+                        element.setAttribute("class", "broken-img");
                         element.src = "/img/blog/article-nopic.jpeg";
                     }
                 };
