@@ -1,6 +1,6 @@
-# 91for
+# https://chenyeah.com
 
-> Nuxt.js project
+> Nuxt.js Blog project
 
 ## Build Setup
 
