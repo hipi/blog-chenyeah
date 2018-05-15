@@ -13,9 +13,9 @@
                 </a>
                 <div class="meta">
                     <span>{{n.add_time}}</span>
-                    <span v-if="n.tag" class="tag">
+                    <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
                         <i class="iconfont icon-label"></i>{{n.tag}}
-                    </span>
+                    </nuxt-link>
                 </div>
             </div>
         </div>
@@ -27,28 +27,7 @@ import axios from "axios";
 export default {
     layout: "blog",
     async asyncData(context) {
-        function a() {
-            return axios
-                .get("https://v1.hitokoto.cn/?c=d")
-                .then(res => {
-                    return { info: res.data };
-                })
-                .catch(e => {
-                    return {
-                        info: {
-                            hitokoto: "过去也只是过去 ",
-                            from: "羽叶丶"
-                        }
-                    };
-                });
-            return {
-                info: {
-                    hitokoto: "过去也只是过去 ",
-                    from: "羽叶丶"
-                }
-            };
-        }
-        function b() {
+        function getArticle() {
             return axios
                 .post(
                     "https://api.yuyehack.cn/blog/article/get_articlelist.php",
@@ -65,9 +44,8 @@ export default {
                     return { list: [{ content: "<h1>出错啦</h1>" }] };
                 });
         }
-        let data1 = await b();
-        let data2 = await a();
-        return Object.assign(data1, data2);
+        let data = await getArticle();
+        return data;
     },
     data() {
         return {};

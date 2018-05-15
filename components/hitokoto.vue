@@ -36,6 +36,7 @@ export default {
 .cont {
     background: #fff;
     border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .02), 0 4px 10px rgba(0, 0, 0, .06);
 }
 .ht {
     height: 56px;
@@ -53,6 +54,7 @@ export default {
     padding: 20px 10px;
     font-size: 14px;
     color: #444;
+    line-height: 18px
 }
 </style>
 

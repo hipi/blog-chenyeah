@@ -12,15 +12,15 @@
         </div>
         <span>羽叶のBlog</span>
         <div class="tik">
-            <nuxt-link to="/test">
+            <nuxt-link to="blog/archives">
                 <span>15</span>
                 <i class="iconfont icon-document"></i>
             </nuxt-link>
-            <nuxt-link to="/test">
+            <nuxt-link to="blog/archives">
                 <span>15</span>
                 <i class="iconfont icon-manage"></i>
             </nuxt-link>
-            <nuxt-link to="/test">
+            <nuxt-link to="blog/archives">
                 <span>15</span>
                 <i class="iconfont icon-label"></i>
             </nuxt-link>

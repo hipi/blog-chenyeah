@@ -14,6 +14,7 @@
             <msg></msg>
             <hitokoto></hitokoto>
             <latestArticle></latestArticle>
+            <ad></ad>
         </div>
     </div>
 </template>
@@ -24,13 +25,15 @@ import latestArticle from "~/components/latestArticle";
 import msg from "~/components/msg";
 import archives from "~/components/archives";
 import hitokoto from "~/components/hitokoto";
+import ad from "~/components/ad";
 export default {
     components: {
         info,
         latestArticle,
         msg,
         archives,
-        hitokoto
+        hitokoto,
+        ad
     },
     data() {
         return {};
