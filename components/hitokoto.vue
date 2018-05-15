@@ -4,7 +4,7 @@
             一言
         </div>
         <div class="content">
-            {{hitokoto.hitokoto}}
+            『{{hitokoto.hitokoto}}』
         </div>
     </div>
 </template>

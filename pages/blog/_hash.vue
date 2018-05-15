@@ -64,7 +64,7 @@ export default {
         } else {
             _img.onerror = function() {
                 if (!_img.classList.contains("broken")) {
-                    _img.classList.add("broken");
+                    _img.setAttribute("class", "broken");
                     _img.src = "/img/blog/article-nopic.jpeg";
                 }
             };

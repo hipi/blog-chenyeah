@@ -59,7 +59,7 @@ export default {
             } else {
                 element.onerror = function() {
                     if (!element.classList.contains("broken")) {
-                        element.classList.add("broken");
+                        element.setAttribute("class", "broken");
                         element.src = "/img/blog/article-nopic.jpeg";
                     }
                 };
