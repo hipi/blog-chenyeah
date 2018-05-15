@@ -3,7 +3,7 @@
         <div class="ht">最新文章</div>
         <div class="content">
             <div class="list" v-for="(n,i) in list" :key="i">
-                <nuxt-link class="title" :to="`/test/${n.hash}`">
+                <nuxt-link class="title" :to="`/blog/${n.hash}`">
                     <h2>
                         <span v-if="n.top" class="article-top">[置顶] </span>{{n.title}}
                     </h2>
