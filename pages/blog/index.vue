@@ -109,6 +109,7 @@ export default {
             color: #696969;
             line-height: 24px;
             letter-spacing: 1px;
+            display: block;
             img {
                 max-width: 180px;
                 max-height: 72px;

@@ -47,6 +47,7 @@ export default {
 #main {
     max-width: 1280px;
     padding-top: 80px;
+    padding-bottom: 30px;
     margin: 0 auto;
     display: flex;
     > div {
@@ -63,7 +64,6 @@ export default {
     }
     .container {
         background: #fff;
-        padding-bottom: 30px;
         margin: 0 20px;
         flex: 1;
         max-width: 800px;
