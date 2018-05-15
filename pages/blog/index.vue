@@ -28,7 +28,7 @@ export default {
     layout: "blog",
     async asyncData(context) {
         function a() {
-            /* return axios
+            return axios
                 .get("https://v1.hitokoto.cn/?c=d")
                 .then(res => {
                     return { info: res.data };
@@ -40,7 +40,7 @@ export default {
                             from: "羽叶丶"
                         }
                     };
-                }); */
+                });
             return {
                 info: {
                     hitokoto: "过去也只是过去 ",

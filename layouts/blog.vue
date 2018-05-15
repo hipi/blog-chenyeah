@@ -12,6 +12,7 @@
         </div>
         <div class="sidebar">
             <msg></msg>
+            <hitokoto></hitokoto>
             <latestArticle></latestArticle>
         </div>
     </div>
@@ -22,12 +23,14 @@ import info from "~/components/info";
 import latestArticle from "~/components/latestArticle";
 import msg from "~/components/msg";
 import archives from "~/components/archives";
+import hitokoto from "~/components/hitokoto";
 export default {
     components: {
         info,
         latestArticle,
         msg,
-        archives
+        archives,
+        hitokoto
     },
     data() {
         return {};
