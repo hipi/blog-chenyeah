@@ -64,17 +64,13 @@ export default {
             menu: [
                 {
                     top: {
-                        title: "菜单",
-                        link: "/test"
+                        title: "页面",
+                        link: this.$route.path
                     },
                     child: [
                         {
-                            title: "菜单",
-                            link: "/test"
-                        },
-                        {
-                            title: "菜单",
-                            link: "/test"
+                            title: "VIP视频",
+                            link: "/other/videovip"
                         }
                     ]
                 }
@@ -193,18 +189,20 @@ span {
             display: block;
         }
         &:hover {
-            background: #44cef6;
-            > a {
-                color: #fff;
-            }
+
             .li-sider {
                 display: block;
             }
         }
-
+        a:hover{
+            background: #44cef6;
+            color: #fff;
+        }
         .li-sider {
-            border: 1px solid #eee;
-            display: none;
+            border-radius: 10px;
+            border:1px solid #eee;
+            overflow:hidden;
+            display:none;
             position: absolute;
             border-radius: 10px;
             top: -1px;
@@ -216,12 +214,11 @@ span {
                 padding: 0;
                 margin: 0;
                 display: block;
-                li:first-child {
-                    border-top: 0;
-                    border-radius: 10px 10px 0 0;
-                }
-                li:last-child {
-                    border-radius: 0 0 10px 10px;
+                li{
+                    border-top:1px solid #eee;
+                    &:first-child{
+                        border:0
+                    }
                 }
             }
         }
