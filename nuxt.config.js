@@ -32,7 +32,8 @@ module.exports = {
 
     plugins: [
         { src: "~plugins/main", ssr: true },
-        { src: "~plugins/pv", ssr: false }
+        { src: "~plugins/pv", ssr: false },
+        { src: "~plugins/utils", ssr: false }
     ],
     build: {
         extend(config, { isDev, isClient }) {

@@ -27,7 +27,7 @@
                 </svg>
             </span>
         </div>
-        </div>
+    </div>
 </template>
 <script>
 export default {
@@ -50,13 +50,22 @@ export default {
                 "https://player.52laoma.com/ipsign/player.php?v=" + this.url;
         },
         play() {
-            if (this.url!=="") {
+            if (this.url !== "") {
                 this.start(url);
                 this.isplay = true;
             } else {
                 alert("请输入链接地址");
             }
         }
+    },
+    mounted() {
+        /* this.$confirm("asd")
+            .then(() => {
+                console.log("chenggong1");
+            })
+            .catch(() => {
+                console.log("XX");
+            }); */
     }
 };
 </script>
@@ -111,7 +120,7 @@ h2 {
     p {
         margin: 14px;
     }
-    >div{
+    > div {
         margin: 14px;
     }
 }
