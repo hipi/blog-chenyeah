@@ -5,14 +5,14 @@
 </template>
 
 <style lang="scss" scoped>
-    .container{
+    /* .container{
         background:#fff;
         position:fixed;
         width: 100%;
         height: 100%;
         top: 0px;
         overflow:auto;
-    }
+    } */
 </style>
 <script>
 export default {
