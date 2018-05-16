@@ -238,7 +238,6 @@ span {
         height: 40px;
         outline: none;
         margin: 0;
-        border-radius: 0 0 10px 10px;
         background: #fff;
         width: 100%;
         &:hover {
