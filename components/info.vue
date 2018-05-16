@@ -26,6 +26,9 @@
             </nuxt-link>
         </div>
         <ul class="menu">
+            <li>
+                <nuxt-link to="/blog">首页</nuxt-link>
+            </li>
             <li v-for="(n,i) in menu" :key="i">
                 <nuxt-link :to="n.top.link">{{n.top.title}}</nuxt-link>
                 <div class="li-sider">
