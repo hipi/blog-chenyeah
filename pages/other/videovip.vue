@@ -3,7 +3,7 @@
         <div class="fc">
             <h2 class="title">VIP视频解析播放</h2>
             <div class="search">
-                <input v-model="url" type="text" placeholder="请输入播放地址后解析,支持爱奇艺,优酷,土豆等VIP视频播放地址" autocomplete="off" id="url">
+                <input @keydown.enter="play" v-model="url" type="text" placeholder="请输入播放地址后解析,支持爱奇艺,优酷,土豆等VIP视频播放地址" autocomplete="off" id="url">
                 <span id="ans" @click="play">
                     解析
                 </span>
@@ -50,7 +50,7 @@ export default {
                 "https://player.52laoma.com/ipsign/player.php?v=" + this.url;
         },
         play() {
-            if (url) {
+            if (this.url!=="") {
                 this.start(url);
                 this.isplay = true;
             } else {
