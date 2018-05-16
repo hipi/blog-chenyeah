@@ -80,9 +80,3 @@ export default {
 }
 </style>
 
-<style lang="scss">
-body {
-    background: #e8e8e8;
-}
-</style>
-

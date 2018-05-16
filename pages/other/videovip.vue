@@ -11,9 +11,9 @@
             <div class="info">
                 <p>本站提供的：腾讯视频VIP解析、优酷视频VIP解析、爱奇艺VIP解析、乐视vip解析等接口均收集自网络。</p>
                 <p>本站无任何广告，如果发现视频中有广告，均为解析接口自带的广告，请自己用浏览器去广告插件去除。 支持全网VIP解析，支持手机哦。</p>
-                <p>记住永久地址：
+                <div>记住永久地址：
                     <a href="/other/videovip"> https://chenyeah.com/other/videovip</a>
-                </p>
+                </div>
             </div>
         </div>
         <div class="v" v-show="isplay">
@@ -27,7 +27,7 @@
                 </svg>
             </span>
         </div>
-    </div>
+        </div>
 </template>
 <script>
 export default {
@@ -64,8 +64,8 @@ export default {
 <style lang="scss" scoped>
 .fc {
     width: 900px;
-    margin: 40px auto;
-    margin-bottom: 20px;
+    margin: 0 auto;
+    padding-top: 40px;
 }
 h2 {
     color: #3cafff;
@@ -109,6 +109,9 @@ h2 {
 }
 .info {
     p {
+        margin: 14px;
+    }
+    >div{
         margin: 14px;
     }
 }
