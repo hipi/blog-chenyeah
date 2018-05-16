@@ -10,6 +10,9 @@
             <div class="tag">
                 <input v-model="tag" placeholder="输入标签..." type="text">
             </div>
+            <div class="cover">
+                <input v-model="cover" spellcheck="false" placeholder="输入封面图片地址">
+            </div>
             <div @click="submit" class="sub">
                 发布
             </div>
@@ -36,6 +39,7 @@ export default {
             title: "",
             info: "",
             tag: "",
+            cover: "",
             content: ""
         };
     },
@@ -64,6 +68,7 @@ export default {
                                 title: this.title,
                                 info: this.info,
                                 tag: this.tag,
+                                cover:this.cover,
                                 content: this.content
                             }
                         )
@@ -92,7 +97,7 @@ export default {
         display: flex;
         border-bottom: 1px solid #eee;
         .title {
-            flex: 1;
+            width: 500px;
             border-right: 1px solid #eee;
             .title-input {
                 margin: 0;
@@ -108,7 +113,7 @@ export default {
             }
         }
         .info {
-            flex: 1.5;
+            flex: 1;
             textarea {
                 width: 100%;
                 height: 100%;
@@ -123,6 +128,22 @@ export default {
             width: 80px;
             border-left: 1px solid #eee;
             border-right: 1px solid #eee;
+            input {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+                font-weight: 700;
+                color: #333;
+                border: none;
+                outline: none;
+                width: 100%;
+                height: 100%;
+                padding: 0 10px;
+            }
+        }
+        .cover {
+            border-right: 1px solid #eee;
+            width:200px;
             input {
                 margin: 0;
                 padding: 0;
