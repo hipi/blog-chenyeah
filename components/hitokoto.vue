@@ -20,10 +20,9 @@ export default {
     mounted() {
         const hitokotoList = [
             "https://v1.hitokoto.cn/?c=d&encode=json",
-            "https://api.lwl12.com/hitokoto/v1?encode=realjson",
-            "https://api.i-meto.com/hitokoto?encode=json"
+            "https://api.lwl12.com/hitokoto/v1?encode=realjson"
         ];
-        let select = Math.floor(Math.random() * 3);
+        let select = Math.floor(Math.random() * 2);
         axios
             .get(hitokotoList[select])
             .then(res => {
