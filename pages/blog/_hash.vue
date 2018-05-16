@@ -95,9 +95,13 @@ export default {
 }
 .cover {
     margin-bottom: 20px;
+    overflow: hidden;
     img {
         border-radius: 4px;
         display: block;
+        max-width: 100%;
+        max-height: 400px;
+        margin: 0 auto;
     }
 }
 .info {
