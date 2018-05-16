@@ -4,7 +4,8 @@
             一言
         </div>
         <div class="content">
-            『{{hitokoto.hitokoto}}』
+            <!-- 『{{hitokoto.hitokoto}}』 -->
+            {{hitokoto}}
         </div>
     </div>
 </template>
@@ -13,20 +14,27 @@ import axios from "axios";
 export default {
     data() {
         return {
-            hitokoto: 1
+            hitokoto: ""
         };
     },
     mounted() {
+        const hitokotoList = [
+            "https://v1.hitokoto.cn/?c=d&encode=json",
+            "https://api.lwl12.com/hitokoto/v1?encode=realjson",
+            "https://api.i-meto.com/hitokoto?encode=json"
+        ];
+        let select = Math.floor(Math.random() * 3);
         axios
-            .get("https://v1.hitokoto.cn/?c=d")
+            .get(hitokotoList[select])
             .then(res => {
-                this.hitokoto = res.data;
+                if (select == 0) {
+                    this.hitokoto = res.data.hitokoto;
+                } else {
+                    this.hitokoto = res.data.text;
+                }
             })
             .catch(e => {
-                this.hitokoto = {
-                    hitokoto: "过去也只是过去 ",
-                    from: "羽叶丶"
-                };
+                this.hitokoto = "过去也只是过去";
             });
     }
 };
@@ -36,7 +44,7 @@ export default {
 .cont {
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .02), 0 4px 10px rgba(0, 0, 0, .06);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 .ht {
     height: 56px;
@@ -54,7 +62,7 @@ export default {
     padding: 20px 10px;
     font-size: 14px;
     color: #444;
-    line-height: 18px
+    line-height: 18px;
 }
 </style>
 

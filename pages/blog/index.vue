@@ -68,19 +68,21 @@ export default {
     methods: {
         replaceBrokenImg() {
             let _img = this.$refs.articleImg;
-            _img.forEach(element => {
-                if (!element.src) {
-                    element.src = "/img/blog/article-nopic.jpeg";
-                    element.setAttribute("class", "broken-img");
-                } else {
-                    element.onerror = function() {
-                        if (!element.classList.contains("broken-img")) {
-                            element.setAttribute("class", "broken-img");
-                            element.src = "/img/blog/article-nopic.jpeg";
-                        }
-                    };
-                }
-            });
+            if (_img) {
+                _img.forEach(element => {
+                    if (!element.src) {
+                        element.src = "/img/blog/article-nopic.jpeg";
+                        element.setAttribute("class", "broken-img");
+                    } else {
+                        element.onerror = function() {
+                            if (!element.classList.contains("broken-img")) {
+                                element.setAttribute("class", "broken-img");
+                                element.src = "/img/blog/article-nopic.jpeg";
+                            }
+                        };
+                    }
+                });
+            }
         },
         load(page) {
             axios
@@ -119,6 +121,23 @@ export default {
         this.replaceBrokenImg();
         let vm = this;
         this.scroll();
+    },
+    watch: {
+        "$route.query": function(to, from) {
+            axios
+                .post(
+                    "https://api.yuyehack.cn/blog/article/get_articlelist.php",
+                    {
+                        s: this.$route.query.s,
+                        page: 1,
+                        pageSize: 8
+                    }
+                )
+                .then(res => {
+                    (this.list = res.data.list),
+                        (this.totalPages = res.data.totalPages);
+                });
+        }
     }
 };
 </script>

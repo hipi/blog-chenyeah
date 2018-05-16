@@ -55,7 +55,7 @@
 
         </ul>
         <form action="/blog" class="search">
-            <input placeholder="搜索" name="s" type="search">
+            <input @keydown.enter.prevent="search($event)" v-model="s" placeholder="搜索" name="s" type="search" autocomplete="off">
         </form>
         <a class="beian" target="_blank" href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
     </div>
@@ -65,6 +65,7 @@ export default {
     data() {
         return {
             isMusic: false,
+            s: "",
             menu: [
                 {
                     top: {
@@ -81,7 +82,11 @@ export default {
             ]
         };
     },
-    methods: {}
+    methods: {
+        search(e) {
+            this.$router.replace({ path: "/blog", query: { s: this.s } });
+        }
+    }
 };
 </script>
 
