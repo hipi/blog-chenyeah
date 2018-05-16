@@ -14,6 +14,10 @@
             </p>
         </div>
         <canvas></canvas>
+        <span class="beian">
+            <a href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
+            陈晔版权所有
+        </span>
     </div>
 
 </template>
@@ -21,9 +25,7 @@
 <script>
 export default {
     head() {
-        return {
-
-        };
+        return {};
     },
     mounted() {
         document.addEventListener("touchmove", function(e) {
@@ -158,5 +160,11 @@ a {
 
 a:hover {
     color: #3cafff;
+}
+.beian {
+    position: absolute;
+    bottom: 0;
+    left: 42%;
+    color: #fff;
 }
 </style>
