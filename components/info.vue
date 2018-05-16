@@ -54,8 +54,8 @@
             </li>
 
         </ul>
-        <form class="search">
-            <input placeholder="搜索" type="search">
+        <form action="/blog" class="search">
+            <input placeholder="搜索" name="s" type="search">
         </form>
         <a class="beian" target="_blank" href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
     </div>

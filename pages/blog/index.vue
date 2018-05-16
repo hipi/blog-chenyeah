@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="ht">最新文章</div>
+
+        <div v-if="s&&s!==''" class="ht">{{s}} - 搜索结果</div>
+        <div v-else class="ht">最新文章</div>
         <div class="content">
             <div class="list" v-for="(n,i) in list" :key="i">
                 <nuxt-link class="title" :to="`/blog/${n.hash}`">
@@ -26,18 +28,22 @@
 import axios from "axios";
 export default {
     layout: "blog",
-    async asyncData(context) {
+    async asyncData({ query }) {
         function getArticle() {
             return axios
                 .post(
                     "https://api.yuyehack.cn/blog/article/get_articlelist.php",
                     {
+                        s: query.s,
                         page: 1,
-                        pageSize: 1000
+                        pageSize: 8
                     }
                 )
                 .then(res => {
-                    return { list: res.data.list };
+                    return {
+                        list: res.data.list,
+                        totalPages: res.data.totalPages
+                    };
                 })
                 .catch(e => {
                     // context.error({ statusCode: 404, message: "出错啦" });
@@ -48,24 +54,71 @@ export default {
         return data;
     },
     data() {
-        return {};
+        return {
+            currentPage: 1,
+            isLoad: true
+        };
     },
-    methods: {},
-    mounted() {
-        let _img = this.$refs.articleImg;
-        _img.forEach(element => {
-            if (!element.src) {
-                element.src = "/img/blog/article-nopic.jpeg";
-                element.setAttribute("class", "broken-img");
-            } else {
-                element.onerror = function() {
-                    if (!element.classList.contains("broken-img")) {
-                        element.setAttribute("class", "broken-img");
-                        element.src = "/img/blog/article-nopic.jpeg";
+
+    computed: {
+        s: function() {
+            return this.$route.query.s;
+        }
+    },
+    methods: {
+        replaceBrokenImg() {
+            let _img = this.$refs.articleImg;
+            _img.forEach(element => {
+                if (!element.src) {
+                    element.src = "/img/blog/article-nopic.jpeg";
+                    element.setAttribute("class", "broken-img");
+                } else {
+                    element.onerror = function() {
+                        if (!element.classList.contains("broken-img")) {
+                            element.setAttribute("class", "broken-img");
+                            element.src = "/img/blog/article-nopic.jpeg";
+                        }
+                    };
+                }
+            });
+        },
+        load(page) {
+            axios
+                .post(
+                    "https://api.yuyehack.cn/blog/article/get_articlelist.php",
+                    {
+                        s: this.s,
+                        page: page,
+                        pageSize: 8
                     }
-                };
-            }
-        });
+                )
+                .then(res => {
+                    let newList = res.data.list;
+                    this.list = [...this.list, ...newList];
+                    this.isLoad = true;
+                    this.currentPage++;
+                });
+        },
+        scroll() {
+            let ele = document.documentElement;
+            let vm = this;
+            window.onscroll = function() {
+                if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
+                    if (vm.currentPage < vm.totalPages) {
+                        if (vm.isLoad) {
+                            console.log(1);
+                            vm.isLoad = false;
+                            vm.load(vm.currentPage + 1);
+                        }
+                    }
+                }
+            };
+        }
+    },
+    mounted() {
+        this.replaceBrokenImg();
+        let vm = this;
+        this.scroll();
     }
 };
 </script>

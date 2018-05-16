@@ -65,6 +65,7 @@ export default {
     .container {
         background: #fff;
         margin: 0 20px;
+        height: fit-content;
         flex: 1;
         max-width: 800px;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02),
