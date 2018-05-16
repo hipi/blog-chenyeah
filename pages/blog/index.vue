@@ -104,7 +104,7 @@ export default {
             }
         }
         .info {
-            min-height: 72px;
+            min-height: 80px;
             font-size: 14px;
             margin: 0;
             color: #696969;
@@ -113,7 +113,7 @@ export default {
             display: block;
             img {
                 max-width: 180px;
-                max-height: 72px;
+                max-height: 80px;
                 float: right;
                 margin-left: 10px;
                 border-radius: 4px;
