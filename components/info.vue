@@ -54,6 +54,7 @@
         <form class="search">
             <input placeholder="搜索" type="search">
         </form>
+        <a class="beian" target="_blank" href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
     </div>
 </template>
 <script>
@@ -88,7 +89,7 @@ export default {
     text-align: center;
     // border: 1px solid #eee;
     position: relative;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.02), 0 4px 10px rgba(0,0,0,.06);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
     .music {
         position: absolute;
         top: 10px;
@@ -193,15 +194,15 @@ span {
                 display: block;
             }
         }
-        a:hover{
+        a:hover {
             background: #44cef6;
             color: #fff;
         }
         .li-sider {
             border-radius: 10px;
-            border:1px solid #eee;
-            overflow:hidden;
-            display:none;
+            border: 1px solid #eee;
+            overflow: hidden;
+            display: none;
             position: absolute;
             border-radius: 10px;
             top: -1px;
@@ -213,10 +214,10 @@ span {
                 padding: 0;
                 margin: 0;
                 display: block;
-                li{
-                    border-top:1px solid #eee;
-                    &:first-child{
-                        border:0
+                li {
+                    border-top: 1px solid #eee;
+                    &:first-child {
+                        border: 0;
                     }
                 }
             }
@@ -235,7 +236,7 @@ span {
         margin: 0;
         border-radius: 0 0 10px 10px;
         background: #fff;
-        width:100%;
+        width: 100%;
         &:hover {
             background: #44cef6;
             &::-webkit-input-placeholder {
@@ -243,6 +244,13 @@ span {
             }
         }
     }
+}
+.beian {
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #aaa;
+    text-decoration: none;
 }
 </style>
 
