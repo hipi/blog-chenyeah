@@ -7,7 +7,7 @@
             <div class="list" v-for="(n,i) in list" :key="i">
                 <nuxt-link class="title" :to="`/blog/${n.hash}`">
                     <h2>
-                        <span v-if="n.top" class="article-top">[置顶] </span>{{n.title}}
+                        <span v-if="n.top" style="color:#de8181">[置顶] </span>{{n.title}}
                     </h2>
                 </nuxt-link>
                 <a class="info">
