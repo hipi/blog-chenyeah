@@ -20,6 +20,9 @@
                     </nuxt-link>
                 </div>
             </div>
+            <div class="mloading" @click="mload" v-if="currentPage<totalPages">
+                继续加载
+            </div>
         </div>
 
     </div>
@@ -104,17 +107,31 @@ export default {
         scroll() {
             let ele = document.documentElement;
             let vm = this;
-            window.onscroll = function() {
-                if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
-                    if (vm.currentPage < vm.totalPages) {
-                        if (vm.isLoad) {
-                            console.log(1);
-                            vm.isLoad = false;
-                            vm.load(vm.currentPage + 1);
+            if (ele.clientWidth > 768) {
+                window.onscroll = function() {
+                    if (
+                        ele.scrollHeight - ele.scrollTop - ele.clientHeight <
+                        30
+                    ) {
+                        if (vm.currentPage < vm.totalPages) {
+                            if (vm.isLoad) {
+                                console.log(1);
+                                vm.isLoad = false;
+                                vm.load(vm.currentPage + 1);
+                            }
                         }
                     }
+                };
+            }
+        },
+        mload() {
+            let vm = this;
+            if (vm.currentPage < vm.totalPages) {
+                if (vm.isLoad) {
+                    vm.isLoad = false;
+                    vm.load(vm.currentPage + 1);
                 }
-            };
+            }
         }
     },
     mounted() {
@@ -199,6 +216,20 @@ export default {
                 margin-left: 10px;
                 font-size: 14px;
             }
+        }
+    }
+    .mloading {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .content {
+        .mloading {
+            display: block;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
         }
     }
 }
