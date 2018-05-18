@@ -79,5 +79,33 @@ export default {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #main {
+        padding-top: 10px;
+        display: block;
+        padding-bottom: 0;
+        .my {
+            width: 94%;
+            margin: 0 auto;
+            div {
+                position: relative;
+                width: 100%;
+            }
+        }
+        .container {
+            width: 94%;
+            margin: 10px auto;
+        }
+        .sidebar {
+            width: 94%;
+            margin: 10px auto;
+            > div {
+                margin-top:10px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
 </style>
 

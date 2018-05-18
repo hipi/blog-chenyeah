@@ -260,5 +260,15 @@ span {
     color: #aaa;
     text-decoration: none;
 }
+@media screen and (max-width: 768px) {
+    .cont {
+        border-radius: 10px 10px 0 0;
+    }
+    .menu,
+    .search,
+    .beian {
+        display: none;
+    }
+}
 </style>
 
