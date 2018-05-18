@@ -14,7 +14,9 @@
                     <img ref="articleImg" :src="n.cover"> {{n.info}}
                 </a>
                 <div class="meta">
-                    <span>{{n.add_time}}</span>
+                    <i v-if="n.modify_time" class="iconfont icon-brush"></i>
+                    <i v-else class="iconfont icon-activity"></i>
+                    <span> {{n.modify_time?n.modify_time:n.add_time}}</span>
                     <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
                         <i class="iconfont icon-label"></i>{{n.tag}}
                     </nuxt-link>
