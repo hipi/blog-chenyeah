@@ -51,6 +51,7 @@ module.exports = {
                     "vue-style-loader!css-loader!sass-loader";
             }
         },
-        vendor: ["axios", "marked", "js-cookie"]
+        vendor: ["axios", "marked", "js-cookie"],
+        publicPath: 'https://static.yuyehack.cn/blog'
     }
 };
