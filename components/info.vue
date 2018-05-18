@@ -249,12 +249,6 @@ span {
         background: #fff;
         -webkit-appearance: none;
         border-radius: 0;
-        &:hover {
-            background: #44cef6;
-            &::-webkit-input-placeholder {
-                color: #fff;
-            }
-        }
     }
 }
 .beian {
