@@ -236,16 +236,18 @@ span {
 }
 .search {
     border-top: 1px solid #eee;
-    font-size: 14px;
+    padding: 0;
     input {
+        font-size: 14px;
+        width: 100%;
         color: #888;
-        border: 0;
+        border: none;
         text-align: center;
         height: 40px;
         outline: none;
         margin: 0;
         background: #fff;
-        width: 100%;
+        -webkit-appearance: none;
         &:hover {
             background: #44cef6;
             &::-webkit-input-placeholder {
