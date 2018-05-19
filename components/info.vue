@@ -1,7 +1,7 @@
 <template>
     <div class="cont">
         <i @click="isMusic=!isMusic" class="music iconfont icon-music"></i>
-        <iframe v-if="isMusic" class="wy" frameborder="no" border="0" marginwidth="0" marginheight="0" width=198 height=52 src="//music.163.com/outchain/player?type=2&id=32507039&auto=1&height=32"></iframe>
+        <audio v-if="isMusic" autoplay src="/music/bg.mp3"></audio>
         <div class="head">
             <nuxt-link to='/admin'>
                 <img src="https://www.gravatar.com/avatar/40206d98ff6e85da457c341e4a4ea437" alt="">
