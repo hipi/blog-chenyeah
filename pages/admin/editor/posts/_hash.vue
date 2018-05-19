@@ -58,7 +58,6 @@ export default {
             content: ""
         };
     },
-    middleware: "userAuth",
     computed: {
         html: function() {
             return marked(this.editor.content);
@@ -90,7 +89,7 @@ export default {
                         )
                         .then(res => {
                             if (res.data.code == 0) {
-                                this.$router.push(`/blog/${this.editor.hash}`);
+                                this.$router.go(-1);
                             } else {
                                 alert(res.data.msg);
                             }

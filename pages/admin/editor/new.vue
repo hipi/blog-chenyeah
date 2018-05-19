@@ -43,7 +43,6 @@ export default {
             content: ""
         };
     },
-    middleware: "userAuth",
     computed: {
         html: function() {
             return marked(this.content);
