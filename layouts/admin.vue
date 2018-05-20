@@ -83,7 +83,7 @@ export default {
 <style lang="scss" scoped>
 #admin {
     .topbar {
-        position: relative;
+        position: fixed;
         left: 0;
         right: 0;
         height: 50px;
