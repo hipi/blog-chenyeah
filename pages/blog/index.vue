@@ -153,8 +153,8 @@ export default {
                     }
                 )
                 .then(res => {
-                    (this.list = res.data.list),
-                        (this.totalPages = res.data.totalPages);
+                    this.list = res.data.list;
+                    this.totalPages = res.data.totalPages;
                 });
         }
     }
