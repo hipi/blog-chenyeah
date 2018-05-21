@@ -117,7 +117,6 @@ h1 {
     margin: 12px 0;
     left: 4px;
     background: linear-gradient(to top right, #81c2d6, #dcf7a1, #83fcd8);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -163,8 +162,11 @@ a:hover {
 }
 .beian {
     position: absolute;
+    width:100%;
+    text-align: center;
     bottom: 0;
-    left: 42%;
+    left: 0;
     color: #fff;
+    font-size: 12px;
 }
 </style>
