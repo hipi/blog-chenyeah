@@ -105,6 +105,8 @@ export default {
                     this.isLoad = true;
                     this.currentPage++;
                 });
+            // 再次替换坏图片
+            this.replaceBrokenImg();
         },
         scroll() {
             let ele = document.documentElement;
