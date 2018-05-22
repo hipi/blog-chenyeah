@@ -1,6 +1,6 @@
 module.exports = {
     head: {
-        title: "羽叶丶",
+        title: "羽叶のBlog",
         meta: [
             { charset: "utf-8" },
             {
@@ -36,22 +36,6 @@ module.exports = {
         { src: "~plugins/utils", ssr: false }
     ],
     build: {
-        extend(config, { isDev, isClient }) {
-            if (isDev && isClient) {
-                config.module.rules.push({
-                    enforce: "pre",
-                    test: /\.(js|vue)$/,
-                    loader: "eslint-loader",
-                    exclude: /(node_modules)/
-                });
-                const vueLoader = config.module.rules.find(
-                    rule => rule.loader === "vue-loader"
-                );
-                vueLoader.options.loaders.sass =
-                    "vue-style-loader!css-loader!sass-loader";
-            }
-        },
-        vendor: ["axios", "marked", "js-cookie"],
-        publicPath: "//static.yuyehack.cn/blog/"
+        // publicPath: "//static.yuyehack.cn/blog/"
     }
 };

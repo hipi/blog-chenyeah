@@ -16,7 +16,7 @@
         "axios": "^0.18.0",
         "js-cookie": "^2.2.0",
         "marked": "^0.3.19",
-        "nuxt": "1.4.0"
+        "nuxt-edge": "latest"
     },
     "devDependencies": {
         "babel-eslint": "^8.2.1",
@@ -26,11 +26,5 @@
         "eslint-plugin-vue": "^4.0.0",
         "node-sass": "^4.8.3",
         "sass-loader": "^7.0.0"
-    },
-    "config": {
-        "nuxt": {
-            "host": "0.0.0.0",
-            "port": "3000"
-        }
     }
 }
