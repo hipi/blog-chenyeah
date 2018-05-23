@@ -73,7 +73,7 @@ export default {
                         )
                         .then(res => {
                             if (res.data.code == 0) {
-                                alert("笔记发布成功");
+                                this.$router.push("/admin/article");
                             } else {
                                 alert(res.data.msg);
                             }
