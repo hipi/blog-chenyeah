@@ -1,36 +1,36 @@
 <template>
-    <div ref="adminArticle">
-        <div class="ht">
-            <span v-if="s&&s!==''">{{s}} - 搜索结果</span>
-            <span v-else>最新文章</span>
-            <nuxt-link to="/admin/editor/new" class="add">新增文章</nuxt-link>
-        </div>
-        <div class="content">
-            <div class="list" v-for="(n,i) in list" :key="i">
-                <h2>
-                    <nuxt-link class="title" :to="`/blog/${n.hash}`">
-                        <span v-if="n.top" class="article-top">[置顶] </span>{{n.title}}
-                    </nuxt-link>
-                    <nuxt-link class="edit" :to="`/admin/editor/posts/${n.hash}`">
-                        编辑
-                    </nuxt-link>
-                    <span @click="deleteArticle" class="del">
-                        删除
-                    </span>
-                </h2>
-                <a class="info">
-                    <img ref="articleImg" :src="n.cover"> {{n.info}}
-                </a>
-                <div class="meta">
-                    <span>{{n.add_time}}</span>
-                    <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
-                        <i class="iconfont icon-label"></i>{{n.tag}}
-                    </nuxt-link>
-                </div>
-            </div>
-        </div>
-
+  <div ref="adminArticle">
+    <div class="ht">
+      <span v-if="s&&s!==''">{{s}} - 搜索结果</span>
+      <span v-else>最新文章</span>
+      <nuxt-link to="/admin/editor/new" class="add">新增文章</nuxt-link>
     </div>
+    <div class="content">
+      <div class="list" v-for="(n,i) in list" :key="i">
+        <h2>
+          <nuxt-link class="title" :to="`/blog/${n.hash}`">
+            <span v-if="n.top" class="article-top">[置顶] </span>{{n.title}}
+          </nuxt-link>
+          <nuxt-link class="edit" :to="`/admin/editor/posts/${n.hash}`">
+            编辑
+          </nuxt-link>
+          <span @click="deleteArticle" class="del">
+            删除
+          </span>
+        </h2>
+        <a class="info">
+          <img ref="articleImg" :src="n.cover"> {{n.info}}
+        </a>
+        <div class="meta">
+          <span>{{n.add_time}}</span>
+          <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
+            <i class="iconfont icon-label"></i>{{n.tag}}
+          </nuxt-link>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -52,7 +52,7 @@ export default {
         })
         .catch(e => {
           // context.error({ statusCode: 404, message: "出错啦" });
-          return { list: [{ content: "<h1>出错啦</h1>" }] };
+          return { list: [{ title: "出错啦", info: "请检查接口" }] };
         });
     }
     let data = await getArticle();
