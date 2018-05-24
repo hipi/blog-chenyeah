@@ -20,6 +20,8 @@ module.exports = {
         ],
         link: [
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+            { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Open+Sans" },
+            { rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" },
             { rel: "stylesheet", href: "/css/reset.css" },
             { rel: "stylesheet", href: "/css/iconfont.css" }
         ]
