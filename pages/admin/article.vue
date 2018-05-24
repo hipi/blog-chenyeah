@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     replaceBrokenImg() {
-      let _img = this.$refs.articleImg;
+      /* let _img = this.$refs.articleImg;
       if (_img) {
         _img.forEach(element => {
           if (!element.src) {
@@ -87,7 +87,15 @@ export default {
             };
           }
         });
-      }
+      } */
+      this.list.forEach((n, i) => {
+        let img = new Image();
+        img.onerror = function() {
+          n.imgIsBroken = true;
+          n.cover = "/img/blog/article-nopic.jpeg";
+        };
+        img.src = n.cover;
+      });
     },
     deleteArticle() {
       this.$confirm("确认删除此文章？")
@@ -108,12 +116,7 @@ export default {
           this.list = [...this.list, ...newList];
           this.isLoad = true;
           this.currentPage++;
-          this.$nextTick(function() {
-            // DOM 现在更新了
-            // `this` 绑定到当前实例
-            // 再次替换坏图片
-            this.replaceBrokenImg();
-          });
+          this.replaceBrokenImg();
         });
     },
     scroll() {
