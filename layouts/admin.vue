@@ -50,6 +50,12 @@ export default {
           path: "/admin/other"
         },
         {
+          class_name: "icon-upload",
+          name: "存储桶",
+          route: "upload",
+          path: "/admin/upload"
+        },
+        {
           class_name: "icon-setup",
           name: "设置",
           route: "setting",
