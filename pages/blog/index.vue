@@ -85,6 +85,14 @@ export default {
           }
         });
       }
+
+      /* this.list.forEach((n, i) => {
+        let img = new Image();
+        img.onerror = function() {
+          n.cover = "/img/blog/article-nopic.jpeg";
+        };
+        img.src = n.cover;
+      }); */
     },
     load(page) {
       axios
@@ -98,9 +106,13 @@ export default {
           this.list = [...this.list, ...newList];
           this.isLoad = true;
           this.currentPage++;
+          this.$nextTick(function() {
+            // DOM 现在更新了
+            // `this` 绑定到当前实例
+            // 再次替换坏图片
+            this.replaceBrokenImg();
+          });
         });
-      // 再次替换坏图片
-      this.replaceBrokenImg();
     },
     scroll() {
       let ele = document.documentElement;

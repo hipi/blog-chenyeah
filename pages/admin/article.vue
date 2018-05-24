@@ -108,6 +108,12 @@ export default {
           this.list = [...this.list, ...newList];
           this.isLoad = true;
           this.currentPage++;
+          this.$nextTick(function() {
+            // DOM 现在更新了
+            // `this` 绑定到当前实例
+            // 再次替换坏图片
+            this.replaceBrokenImg();
+          });
         });
     },
     scroll() {
