@@ -9,6 +9,11 @@ module.exports = {
           "initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
       },
       {
+        name: "keywords",
+        content:
+          "轻技术 重生活 个人博客 这是一个记录博主学习和成长的一个自媒体博客"
+      },
+      {
         name: "description",
         content:
           "轻技术 重生活 个人博客 这是一个记录博主学习和成长的一个自媒体博客"
