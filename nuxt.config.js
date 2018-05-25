@@ -26,13 +26,13 @@ module.exports = {
       },
       // { rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" },
       { rel: "stylesheet", href: "/css/reset.css" },
-      { rel: "stylesheet", href: "/css/iconfont.css" }
+      { rel: "stylesheet", href: "/css/iconfont.css" },
+      { rel: "stylesheet", href: "/font/fira_code.css" }
     ]
   },
   css: [
     // 加载一个 过渡 效果
-    "~assets/css/transition.css",
-    "~assets/font/fira_code.css"
+    "~assets/css/transition.css"
   ],
   loading: { color: "#3cafff" },
 
