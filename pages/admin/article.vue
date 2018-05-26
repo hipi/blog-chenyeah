@@ -19,7 +19,7 @@
           </span>
         </h2>
         <a class="info">
-          <img ref="articleImg" :src="n.cover"> {{n.info}}
+          <img ref="articleImg" :class="[n.imgIsBroken?'broken-img':'']" :src="n.cover"> {{n.info}}
         </a>
         <div class="meta">
           <span>{{n.add_time}}</span>
@@ -72,22 +72,6 @@ export default {
   },
   methods: {
     replaceBrokenImg() {
-      /* let _img = this.$refs.articleImg;
-      if (_img) {
-        _img.forEach(element => {
-          if (!element.src) {
-            element.src = "/img/blog/article-nopic.jpeg";
-            element.setAttribute("class", "broken-img");
-          } else {
-            element.onerror = function() {
-              if (!element.classList.contains("broken-img")) {
-                element.setAttribute("class", "broken-img");
-                element.src = "/img/blog/article-nopic.jpeg";
-              }
-            };
-          }
-        });
-      } */
       this.list.forEach((n, i) => {
         let img = new Image();
         img.onerror = function() {

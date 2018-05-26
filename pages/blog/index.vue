@@ -4,7 +4,7 @@
     <div v-if="s&&s!==''" class="ht">{{s}} - 搜索结果</div>
     <div v-else class="ht">最新文章</div>
     <div class="content">
-      <div class="list" v-for="(n,i) in list" :key="i">
+      <div v-if="list.length>0" class="list" v-for="(n,i) in list" :key="i">
         <nuxt-link class="title" :to="`/blog/${n.hash}`">
           <h2>
             <span v-if="n.top" style="color:#de8181">[置顶] </span>{{n.title}}
@@ -21,6 +21,9 @@
             <i class="iconfont icon-label"></i>{{n.tag}}
           </nuxt-link>
         </div>
+      </div>
+      <div v-if="list.length==0" class="nodata">
+        暂无文章
       </div>
       <div class="mloading" @click="mload" v-if="currentPage<totalPages">
         继续加载
@@ -69,23 +72,6 @@ export default {
   },
   methods: {
     replaceBrokenImg() {
-      /* let _img = this.$refs.articleImg;
-      if (_img) {
-        _img.forEach(element => {
-          if (!element.src) {
-            element.src = "/img/blog/article-nopic.jpeg";
-            element.setAttribute("class", "broken-img");
-          } else {
-            element.onerror = function() {
-              if (!element.classList.contains("broken-img")) {
-                element.setAttribute("class", "broken-img");
-                element.src = "/img/blog/article-nopic.jpeg";
-              }
-            };
-          }
-        });
-      } */
-
       this.list.forEach((n, i) => {
         let img = new Image();
         img.onerror = function() {
@@ -217,6 +203,11 @@ export default {
         font-size: 14px;
       }
     }
+  }
+  .nodata{
+    line-height: 100px;
+    color: #999;
+    text-align: center;
   }
   .mloading {
     display: none;
