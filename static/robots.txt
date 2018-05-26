@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: 
 Disallow: /admin
-Sitemap: http://chenyeah.com/sitemap.xml
