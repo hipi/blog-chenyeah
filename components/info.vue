@@ -55,7 +55,7 @@
 
     </ul>
     <form action="/blog" class="search">
-      <input @keydown.enter.prevent="search($event)" v-model="s" placeholder="搜索" name="s" type="search" autocomplete="off">
+      <input ref="search" @keydown.enter.prevent="search($event)" v-model="s" placeholder="搜索" name="s" type="search" autocomplete="off">
     </form>
     <a class="beian" target="_blank" href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
 
@@ -87,6 +87,8 @@ export default {
   methods: {
     search(e) {
       this.$router.replace({ path: "/blog", query: { s: this.s } });
+      // 表格取消focus 解决手机键盘不收起
+      this.$refs.search.blur();
     }
   }
 };
