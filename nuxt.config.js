@@ -1,6 +1,6 @@
 module.exports = {
   head: {
-    title: "羽叶丶",
+    title: "羽叶のBlog",
     meta: [
       { charset: "utf-8" },
       {
@@ -11,7 +11,7 @@ module.exports = {
       {
         name: "keywords",
         content:
-          "轻技术 重生活 个人博客 这是一个记录博主学习和成长的一个自媒体博客"
+          "羽叶のBlog 羽叶丶 轻技术 重生活 个人博客 这是一个记录博主学习和成长的一个自媒体博客"
       },
       {
         name: "description",
