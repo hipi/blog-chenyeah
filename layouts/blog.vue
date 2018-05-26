@@ -1,33 +1,28 @@
 <template>
-    <div id="main">
-        <div class="minfo">
-            <!-- <minfo :mactive.sync="mactive"></minfo> -->
-        </div>
-        <div class="my">
-            <div>
-                <info></info>
-            </div>
-        </div>
-        <!-- <div class="bread" @click="mactive=true">
-            <i class="iconfont icon-label"></i>
-        </div> -->
-        <div class="container">
-            <div class="content">
-                <nuxt/>
-            </div>
-        </div>
-        <div class="sidebar">
-            <msg></msg>
-            <hitokoto></hitokoto>
-            <latestArticle></latestArticle>
-            <ad></ad>
-        </div>
+  <div id="main">
+    <div class="minfo">
     </div>
+    <div class="my">
+      <div>
+        <info></info>
+      </div>
+    </div>
+    <div class="container">
+      <div class="content">
+        <nuxt/>
+      </div>
+    </div>
+    <div class="sidebar">
+      <!-- <msg></msg> -->
+      <hitokoto></hitokoto>
+      <latestArticle></latestArticle>
+      <ad></ad>
+    </div>
+  </div>
 </template>
 <script>
 import Cookie from "js-cookie";
 import info from "~/components/info";
-import minfo from "~/components/minfo";
 import latestArticle from "~/components/latestArticle";
 import msg from "~/components/msg";
 import archives from "~/components/archives";
@@ -36,7 +31,6 @@ import ad from "~/components/ad";
 export default {
     components: {
         info,
-        minfo,
         latestArticle,
         msg,
         archives,
