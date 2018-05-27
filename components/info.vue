@@ -78,6 +78,7 @@ export default {
             this.$router.replace({ path: "/blog", query: { s: this.s } });
             // 表格取消focus 解决手机键盘不收起
             this.$refs.search.blur();
+            this.s = "";
         }
     }
 };
