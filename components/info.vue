@@ -4,7 +4,7 @@
     <audio v-if="isMusic" autoplay src="/music/bg.mp3"></audio>
     <div class="head">
       <nuxt-link to='/admin'>
-        <img src="https://www.gravatar.com/avatar/40206d98ff6e85da457c341e4a4ea437" alt="">
+        <img :class="{play:isMusic}" src="https://www.gravatar.com/avatar/40206d98ff6e85da457c341e4a4ea437" alt="">
       </nuxt-link>
     </div>
     <div class="title">
@@ -88,7 +88,6 @@ export default {
     background: #fff;
     border-radius: 10px;
     text-align: center;
-    // border: 1px solid #eee;
     position: relative;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
     .music {
@@ -115,6 +114,17 @@ export default {
             width: 100px;
             border: 1px solid #eee;
             border-radius: 100%;
+            @keyframes play {
+                from {
+                    -webkit-transform: rotate(0deg);
+                }
+                to {
+                    -webkit-transform: rotate(360deg);
+                }
+            }
+            &.play {
+                animation: play 3s linear infinite;
+            }
         }
     }
 }
