@@ -12,18 +12,7 @@
     </div>
     <span>羽叶のBlog</span>
     <div class="tik">
-      <nuxt-link to="blog/archives">
-        <span>15</span>
-        <i class="iconfont icon-document"></i>
-      </nuxt-link>
-      <nuxt-link to="blog/archives">
-        <span>15</span>
-        <i class="iconfont icon-manage"></i>
-      </nuxt-link>
-      <nuxt-link to="blog/archives">
-        <span>15</span>
-        <i class="iconfont icon-label"></i>
-      </nuxt-link>
+
     </div>
     <ul class="menu">
       <li>
@@ -63,217 +52,190 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      isMusic: false,
-      s: "",
-      menu: [
-        {
-          top: {
-            title: "页面",
-            link: ""
-          },
-          child: [
-            {
-              title: "VIP视频",
-              link: "/other/videovip"
-            }
-          ]
+    data() {
+        return {
+            isMusic: false,
+            s: "",
+            menu: [
+                {
+                    top: {
+                        title: "页面",
+                        link: ""
+                    },
+                    child: [
+                        {
+                            title: "VIP视频",
+                            link: "/other/videovip"
+                        }
+                    ]
+                }
+            ]
+        };
+    },
+    couputed: {},
+    methods: {
+        search(e) {
+            this.$router.replace({ path: "/blog", query: { s: this.s } });
+            // 表格取消focus 解决手机键盘不收起
+            this.$refs.search.blur();
         }
-      ]
-    };
-  },
-  couputed: {},
-  methods: {
-    search(e) {
-      this.$router.replace({ path: "/blog", query: { s: this.s } });
-      // 表格取消focus 解决手机键盘不收起
-      this.$refs.search.blur();
     }
-  }
 };
 </script>
 
 <style lang="scss" scoped>
 .cont {
-  background: #fff;
-  border-radius: 10px;
-  text-align: center;
-  // border: 1px solid #eee;
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
-  .music {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  }
-  .wy {
-    position: absolute;
-    bottom: -52px;
-    right: -10px;
-  }
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    // border: 1px solid #eee;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
+    .music {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wy {
+        position: absolute;
+        bottom: -52px;
+        right: -10px;
+    }
 }
 .head {
-  padding: 28px 28px 10px;
-  > a {
-    max-width: 100px;
-    margin: 0 auto;
-    display: block;
-    img {
-      display: block;
-      margin: 0 auto;
-      width: 100px;
-      border: 1px solid #eee;
-      border-radius: 100%;
+    padding: 28px 28px 10px;
+    > a {
+        max-width: 100px;
+        margin: 0 auto;
+        display: block;
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            border: 1px solid #eee;
+            border-radius: 100%;
+        }
     }
-  }
 }
 .title {
-  position: relative;
+    position: relative;
 
-  font-size: 20px;
-  line-height: 30px;
-  margin: 0 35px;
-  color: #333;
-  a {
-    text-decoration: none;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 35px;
     color: #333;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    transform: scaleX(1);
-    transition: all 0.2s ease-in;
-  }
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        transform: scaleX(1);
+        transition: all 0.2s ease-in;
+    }
 }
 span {
-  display: block;
-  font-size: 12px;
-  padding: 0 10px;
-  margin: 10px 0 0;
+    display: block;
+    font-size: 12px;
+    padding: 0 10px;
+    margin: 10px 0 0;
 }
 .tik {
-  padding: 20px;
-  display: flex;
-  font-size: 14px;
-  > a {
-    text-decoration: none;
-    color: #333;
-    flex: 1;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    span {
-      display: block;
-      margin: 0;
-    }
-    &:hover {
-      span,
-      i {
-        font-size: 1.2em;
-        transition: all 0.2s ease-in;
-      }
-      i {
-        font-size: 1.4em;
-        transition: all 0.2s ease-in;
-      }
-    }
-  }
+    height: 20px;
 }
 .menu {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  li {
-    list-style: none;
-    border-top: 1px solid #eee;
-    position: relative;
-    a {
-      text-decoration: none;
-      color: #888;
-      padding: 10px 0;
-      display: block;
-    }
-    &:hover {
-      .li-sider {
-        display: block;
-      }
-    }
-    a:hover {
-      background: #44cef6;
-      color: #fff;
-    }
-    .li-sider {
-      border-radius: 10px;
-      border: 1px solid #eee;
-      overflow: hidden;
-      display: none;
-      position: absolute;
-      border-radius: 10px;
-      top: -1px;
-      left: 180px;
-      z-index: 99;
-      width: 180px;
-      background: #fff;
-      ul {
-        padding: 0;
-        margin: 0;
-        display: block;
-        li {
-          border-top: 1px solid #eee;
-          &:first-child {
-            border: 0;
-          }
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    li {
+        list-style: none;
+        border-top: 1px solid #eee;
+        position: relative;
+        a {
+            text-decoration: none;
+            color: #888;
+            padding: 10px 0;
+            display: block;
         }
-      }
+        &:hover {
+            .li-sider {
+                display: block;
+            }
+        }
+        a:hover {
+            background: #44cef6;
+            color: #fff;
+        }
+        .li-sider {
+            border-radius: 10px;
+            border: 1px solid #eee;
+            overflow: hidden;
+            display: none;
+            position: absolute;
+            border-radius: 10px;
+            top: -1px;
+            left: 180px;
+            z-index: 99;
+            width: 180px;
+            background: #fff;
+            ul {
+                padding: 0;
+                margin: 0;
+                display: block;
+                li {
+                    border-top: 1px solid #eee;
+                    &:first-child {
+                        border: 0;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 .search {
-  border-top: 1px solid #eee;
-  padding: 0;
-  input {
-    font-size: 14px;
-    width: 100%;
-    color: #888;
-    border: none;
-    text-align: center;
-    height: 40px;
-    outline: none;
-    margin: 0;
-    background: #fff;
-    -webkit-appearance: none;
-    border-radius: 0;
-  }
+    border-top: 1px solid #eee;
+    padding: 0;
+    input {
+        font-size: 14px;
+        width: 100%;
+        color: #888;
+        border: none;
+        text-align: center;
+        height: 40px;
+        outline: none;
+        margin: 0;
+        background: #fff;
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
 }
 .beian {
-  font-size: 14px;
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #aaa;
-  text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #aaa;
+    text-decoration: none;
 }
 @media screen and (max-width: 768px) {
-  .cont {
-    border-radius: 10px 10px 0 0;
-    box-shadow: none;
-    .wy {
-      bottom: -64px;
-      right: 10px;
+    .cont {
+        border-radius: 10px 10px 0 0;
+        box-shadow: none;
+        .wy {
+            bottom: -64px;
+            right: 10px;
+        }
     }
-  }
-  .tik {
-    padding: 0 30px;
-  }
-  /* .li-sider {
+    .tik {
+        padding: 0 30px;
+    }
+    /* .li-sider {
         position: initial !important;
         display: block !important;
         border: 0 !important;
@@ -284,11 +246,11 @@ span {
             border-bottom: 0 !important;
         }
     } */
-  .menu li:nth-child(2),
-  .menu li:nth-child(3),
-  .beian {
-    display: none;
-  }
+    .menu li:nth-child(2),
+    .menu li:nth-child(3),
+    .beian {
+        display: none;
+    }
 }
 </style>
 

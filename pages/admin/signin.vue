@@ -59,9 +59,7 @@ export default {
                     password
                 })
                 .then(res => {
-                    console.log(res);
                     if (res.data.code == 0) {
-                        console.log(1);
                         //将服务端的token存入cookie当中
                         Cookie.set("token", res.data.token, { expires: 7 });
                         //返回上一页

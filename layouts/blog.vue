@@ -15,8 +15,11 @@
     <div class="sidebar">
       <!-- <msg></msg> -->
       <hitokoto></hitokoto>
-      <latestArticle></latestArticle>
-      <ad></ad>
+      <div ref="affix" :class="{affix:isAffix}">
+        <latestArticle></latestArticle>
+        <ad></ad>
+      </div>
+
     </div>
   </div>
 </template>
@@ -39,12 +42,38 @@ export default {
     },
     data() {
         return {
-            mactive: false
+            mactive: false,
+            isAffix: false,
+            oldScrollTop: ""
         };
     },
     computed: {},
-    methods: {},
-    mounted() {}
+    methods: {
+        eventListen() {
+            let vm = this;
+            if (document.documentElement.clientWidth > 768) {
+                if (
+                    vm.$refs.affix.offsetTop -
+                        document.documentElement.scrollTop <=
+                    20
+                ) {
+                    vm.isAffix = true;
+                }
+                if (document.documentElement.scrollTop <= vm.oldScrollTop) {
+                    vm.isAffix = false;
+                }
+            }
+        }
+    },
+    mounted() {
+        let vm = this;
+        vm.oldScrollTop = vm.$refs.affix.offsetTop;
+        window.addEventListener("scroll", vm.eventListen);
+    },
+    beforeDestroy() {
+        let vm = this;
+        window.removeEventListener("scroll", vm.eventListen);
+    }
 };
 </script>
 <style lang="scss" scoped>
@@ -82,8 +111,13 @@ export default {
     .sidebar {
         width: 260px;
         height: fit-content;
-        > div {
+        .cont {
             margin-bottom: 20px;
+        }
+        .affix {
+            position: fixed;
+            width: 260px;
+            top: 20px;
         }
     }
 }
