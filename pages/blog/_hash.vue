@@ -23,7 +23,13 @@
     <div id="article" v-html="asyncData.content">
     </div>
     <div class="comment">
-      <div class="comment-title">评论</div>
+      <div class="comment-title">
+        <span>评论</span>
+        <span class="comment-info">
+          需要登陆GitHub才可评论哦！
+        </span>
+      </div>
+
       <div ref="gitment"></div>
     </div>
 
@@ -132,10 +138,15 @@ export default {
 }
 .comment {
   border-top: 1px solid #de8181;
+  margin-top: 40px;
   padding: 10px 0;
+  .comment-info {
+    color: #999;
+    font-size: 14px;
+  }
   .comment-title {
     color: #de8181;
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 </style>
