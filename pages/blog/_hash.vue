@@ -29,17 +29,14 @@
           需要登陆GitHub才可评论哦！
         </span>
       </div>
-
-      <div ref="gitment"></div>
+      <gitment></gitment>
     </div>
-
   </div>
 </template>
 <script>
 import marked from "marked";
 import axios from "axios";
-import "gitment/style/default.css";
-import Gitment from "gitment";
+import gitment from "~/components/gitment";
 export default {
   validate({ params }) {
     return Boolean(params.hash); //路由参数校验
@@ -69,6 +66,9 @@ export default {
   data() {
     return {};
   },
+  components: {
+    gitment
+  },
   methods: {},
   computed: {},
   mounted() {
@@ -84,19 +84,6 @@ export default {
         }
       };
     }
-
-    const gitment = new Gitment({
-      id: location.href, // optional
-      owner: "chenyeah",
-      repo: "chenyeah",
-      oauth: {
-        client_id: "11fa4735df6563f2e9c2",
-        client_secret: "090bc3eeb2c0201fc159778fa067e6df1eb8a17b"
-      }
-      // ...
-      // For more available options, check out the documentation below
-    });
-    gitment.render(this.$refs.gitment);
   },
   beforeDestroy() {}
 };

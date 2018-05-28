@@ -1,5 +1,5 @@
 <template>
-  <div refs="comments">
+  <div ref="comments">
   </div>
 </template>
 <script>
@@ -11,7 +11,7 @@ export default {
   },
   mounted() {
     const gitment = new Gitment({
-      id: location.href, // optional
+      id: document.title, // optional
       owner: "chenyeah",
       repo: "chenyeah",
       oauth: {
