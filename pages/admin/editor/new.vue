@@ -1,33 +1,33 @@
 <template>
-    <div id="edit">
-        <div class="top">
-            <div class="title">
-                <input v-model="title" placeholder="输入文章标题..." class="title-input">
-            </div>
-            <div class="info">
-                <textarea v-model="info" spellcheck="false" placeholder="输入导语..."></textarea>
-            </div>
-            <div class="tag">
-                <input v-model="tag" placeholder="输入标签..." type="text">
-            </div>
-            <div class="cover">
-                <input v-model="cover" spellcheck="false" placeholder="输入封面图片地址">
-            </div>
-            <div @click="submit" class="sub">
-                发布
-            </div>
-        </div>
-        <div class="content">
-            <div class="editor-box">
-                <textarea placeholder="Markdown 格式" @scroll="scroll" ref="edit" v-model="content" spellcheck="false"></textarea>
-            </div>
-            <div class="content-preview">
-                <div ref="show" id="content-html" v-html="html">
-                </div>
-            </div>
-        </div>
-        <div></div>
+  <div id="edit">
+    <div class="top">
+      <div class="title">
+        <input v-model="title" placeholder="输入文章标题..." class="title-input">
+      </div>
+      <div class="info">
+        <textarea v-model="info" spellcheck="false" placeholder="输入导语..."></textarea>
+      </div>
+      <div class="tag">
+        <input v-model="tag" placeholder="输入标签..." type="text">
+      </div>
+      <div class="cover">
+        <input v-model="cover" spellcheck="false" placeholder="输入封面图片地址">
+      </div>
+      <div @click="submit" class="sub">
+        发布
+      </div>
     </div>
+    <div class="content">
+      <div class="editor-box">
+        <textarea placeholder="Markdown 格式" @keydown.tab.prevent="printTab()" @scroll="scroll" ref="edit" v-model="content" spellcheck="false"></textarea>
+      </div>
+      <div class="content-preview">
+        <div ref="show" id="content-html" v-html="html">
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
 </template>
 <script>
 import marked from "marked";
@@ -67,7 +67,7 @@ export default {
                                 title: this.title,
                                 info: this.info,
                                 tag: this.tag,
-                                cover:this.cover,
+                                cover: this.cover,
                                 content: this.content
                             }
                         )
@@ -80,11 +80,46 @@ export default {
                         });
                 })
                 .catch(() => {});
+        },
+        printTab() {
+            var t = this.$refs.edit;
+            if (document.selection);
+            else if (
+                "number" == typeof t.selectionStart &&
+                "number" == typeof t.selectionEnd
+            ) {
+                var n = t.selectionStart,
+                    r = t.selectionEnd,
+                    o = t.value,
+                    i = o
+                        .substring(0, n)
+                        .split("\n")
+                        .pop();
+                if (i.match(/^\s*[0-9]+\.\s+\S*/)) {
+                    var a = i.replace(/(\d+)/, 1);
+                    t.value =
+                        o.substring(0, n - a.length) +
+                        "\t" +
+                        a +
+                        o.substring(r, o.length);
+                } else
+                    i.match(/^\s*-\s+\S*/)
+                        ? (t.value =
+                              o.substring(0, n - i.length) +
+                              "\t" +
+                              i +
+                              o.substring(r, o.length))
+                        : (t.value =
+                              o.substring(0, n) +
+                              "\t" +
+                              o.substring(r, o.length));
+                t.selectionStart = t.selectionEnd = n + 1;
+            } else alert("Error: Browser version is too low");
+            this.content = t.value;
+            t.focus();
         }
     },
-    mounted() {
-    }
-
+    mounted() {}
 };
 </script>
 
@@ -141,7 +176,7 @@ export default {
         }
         .cover {
             border-right: 1px solid #eee;
-            width:200px;
+            width: 200px;
             input {
                 margin: 0;
                 padding: 0;
@@ -174,18 +209,19 @@ export default {
         }
         .editor-box {
             textarea {
-                font-family: "Helvetica Neue", Helvetica, "PingFang SC",
-                    "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+                font-family: Menlo, "Ubuntu Mono", Consolas, "Courier New",
+                    "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei",
                     sans-serif;
-
                 border: 0;
                 resize: none;
                 width: 100%;
                 height: 100%;
                 margin: 0;
-                padding: 30px;
-                font-size: 16px;
+                padding: 10px;
+                font-size: 15px;
                 outline: none;
+                line-height: 1.5;
+                color: #2c3e50;
             }
         }
     }
