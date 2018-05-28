@@ -1,13 +1,14 @@
 <template>
-  <div ref="comments">
-
+  <div refs="comments">
   </div>
 </template>
 <script>
 import "gitment/style/default.css";
 import Gitment from "gitment";
 export default {
-  data() {},
+  data() {
+    return {};
+  },
   mounted() {
     const gitment = new Gitment({
       id: location.href, // optional
