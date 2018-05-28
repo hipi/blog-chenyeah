@@ -10,11 +10,13 @@ export default {
     return {};
   },
   props: {
-    pageId: String
+    pageId: String,
+    pageTitle:String
   },
   mounted() {
     let vm = this;
     const gitment = new Gitment({
+      title:vm.pageTitle,
       id: vm.pageId, // optional
       owner: "chenyeah",
       repo: "chenyeah",

@@ -29,7 +29,7 @@
           需要登陆GitHub才可评论哦！
         </span>
       </div>
-      <gitment :pageId="asyncData.title"></gitment>
+      <gitment :pageTitle="asyncData.title" :pageId="$route.params.hash"></gitment>
     </div>
   </div>
 </template>
