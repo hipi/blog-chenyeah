@@ -27,8 +27,7 @@ module.exports = {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
-        href:
-          "http://prismjs.com/themes/prism.css"
+        href: "https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css"
       },
       {
         rel: "stylesheet",

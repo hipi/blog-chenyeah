@@ -67,7 +67,6 @@ export default {
       .then(res => {
         let DATA = res.data.data;
         DATA.content = marked(DATA.content);
-        console.log(DATA);
         return { asyncData: DATA };
       })
       .catch(e => {
