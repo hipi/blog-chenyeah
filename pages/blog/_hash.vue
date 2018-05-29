@@ -39,7 +39,7 @@ import axios from "axios";
 import gitment from "~/components/gitment";
 import prism from "prismjs";
 marked.setOptions({
-  highlight: function(code) {
+  highlight: function(code, lang) {
     if (["html", "javascript", "css"].includes(lang)) {
       return Prism.highlight(code, prism.languages.lang);
     } else {
@@ -67,6 +67,7 @@ export default {
       .then(res => {
         let DATA = res.data.data;
         DATA.content = marked(DATA.content);
+        console.log(DATA);
         return { asyncData: DATA };
       })
       .catch(e => {

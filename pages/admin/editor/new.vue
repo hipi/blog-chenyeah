@@ -34,7 +34,7 @@ import marked from "marked";
 import axios from "axios";
 import prism from "prismjs";
 marked.setOptions({
-  highlight: function(code) {
+  highlight: function(code,lang) {
     if (["html", "javascript", "css"].includes(lang)) {
       return Prism.highlight(code, prism.languages.lang);
     } else {
