@@ -27,7 +27,8 @@ module.exports = {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
-        href: "https://cdn.bootcss.com/highlight.js/9.12.0/styles/googlecode.min.css"
+        href:
+          "https://cdn.bootcss.com/highlight.js/9.12.0/styles/googlecode.min.css"
       },
       {
         rel: "stylesheet",
@@ -44,7 +45,6 @@ module.exports = {
     "~assets/css/transition.css"
   ],
   loading: { color: "#3cafff" },
-
   plugins: [
     { src: "~plugins/main", ssr: true },
     { src: "~plugins/pv", ssr: false },
