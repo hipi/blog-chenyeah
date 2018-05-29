@@ -34,13 +34,13 @@ import marked from "marked";
 import axios from "axios";
 import prism from "prismjs";
 marked.setOptions({
-  highlight: function(code,lang) {
-    if (["html", "javascript", "css"].includes(lang)) {
-      return Prism.highlight(code, prism.languages.lang);
-    } else {
-      return Prism.highlight(code, prism.languages.javascript);
+    highlight: function(code, lang) {
+        if (["html", "js", "javascript", "css"].includes(lang)) {
+            return Prism.highlight(code, prism.languages[lang]);
+        } else {
+            return Prism.highlight(code, prism.languages.javascript);
+        }
     }
-  }
 });
 export default {
   validate({ params }) {

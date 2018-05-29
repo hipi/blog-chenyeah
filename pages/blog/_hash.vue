@@ -39,128 +39,128 @@ import axios from "axios";
 import gitment from "~/components/gitment";
 import prism from "prismjs";
 marked.setOptions({
-  highlight: function(code, lang) {
-    if (["html", "javascript", "css"].includes(lang)) {
-      return Prism.highlight(code, prism.languages.lang);
-    } else {
-      return Prism.highlight(code, prism.languages.javascript);
+    highlight: function(code, lang) {
+        if (["html", "js", "javascript", "css"].includes(lang)) {
+            return Prism.highlight(code, prism.languages[lang]);
+        } else {
+            return Prism.highlight(code, prism.languages.javascript);
+        }
     }
-  }
 });
 export default {
-  validate({ params }) {
-    return Boolean(params.hash); //路由参数校验
-  },
-  head() {
-    return {
-      title: this.asyncData.title,
-      titleTemplate: "%s - 羽叶丶"
-    };
-  },
-  transition: "blog",
-  layout: "blog",
-  asyncData(context) {
-    return axios
-      .post("https://api.yuyehack.cn/blog/article/get_note.php", {
-        hash: context.params.hash
-      })
-      .then(res => {
-        let DATA = res.data.data;
-        DATA.content = marked(DATA.content);
-        return { asyncData: DATA };
-      })
-      .catch(e => {
-        context.error({ statusCode: 404, message: "笔记不存在" });
-      });
-  },
-  data() {
-    return {};
-  },
-  components: {
-    gitment
-  },
-  methods: {},
-  computed: {},
-  mounted() {
-    let _img = this.$refs.cover;
-    if (!_img.src || _img.src == "") {
-      _img.src = "/img/blog/article-nopic.jpeg";
-      _img.setAttribute("class", "broken-img");
-    } else {
-      _img.onerror = function() {
-        if (!_img.classList.contains("broken-img")) {
-          _img.setAttribute("class", "broken-img");
-          _img.src = "/img/blog/article-nopic.jpeg";
+    validate({ params }) {
+        return Boolean(params.hash); //路由参数校验
+    },
+    head() {
+        return {
+            title: this.asyncData.title,
+            titleTemplate: "%s - 羽叶丶"
+        };
+    },
+    transition: "blog",
+    layout: "blog",
+    asyncData(context) {
+        return axios
+            .post("https://api.yuyehack.cn/blog/article/get_note.php", {
+                hash: context.params.hash
+            })
+            .then(res => {
+                let DATA = res.data.data;
+                DATA.content = marked(DATA.content);
+                return { asyncData: DATA };
+            })
+            .catch(e => {
+                context.error({ statusCode: 404, message: "笔记不存在" });
+            });
+    },
+    data() {
+        return {};
+    },
+    components: {
+        gitment
+    },
+    methods: {},
+    computed: {},
+    mounted() {
+        let _img = this.$refs.cover;
+        if (!_img.src || _img.src == "") {
+            _img.src = "/img/blog/article-nopic.jpeg";
+            _img.setAttribute("class", "broken-img");
+        } else {
+            _img.onerror = function() {
+                if (!_img.classList.contains("broken-img")) {
+                    _img.setAttribute("class", "broken-img");
+                    _img.src = "/img/blog/article-nopic.jpeg";
+                }
+            };
         }
-      };
-    }
-  },
-  beforeDestroy() {}
+    },
+    beforeDestroy() {}
 };
 </script>
 <style lang="scss" scoped>
 .content {
-  padding: 20px;
+    padding: 20px;
 }
 .title {
-  font-size: 30px;
-  color: #444;
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 42px;
-  font-weight: 400;
-  text-transform: none;
+    font-size: 30px;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 42px;
+    font-weight: 400;
+    text-transform: none;
 }
 .breadcrumb {
-  margin-bottom: 20px;
-  font-size: 16px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 .cover {
-  margin-bottom: 20px;
-  overflow: hidden;
-  img {
-    border-radius: 4px;
-    display: block;
-    max-width: 100%;
-    max-height: 400px;
-    margin: 0 auto;
-  }
+    margin-bottom: 20px;
+    overflow: hidden;
+    img {
+        border-radius: 4px;
+        display: block;
+        max-width: 100%;
+        max-height: 400px;
+        margin: 0 auto;
+    }
 }
 .info {
-  color: #de8181;
-  margin-bottom: 20px;
-  padding-left: 1em;
-  border-left: 4px solid #de8181;
-  line-height: 1.5;
+    color: #de8181;
+    margin-bottom: 20px;
+    padding-left: 1em;
+    border-left: 4px solid #de8181;
+    line-height: 1.5;
 }
 .comment {
-  border-top: 1px solid #de8181;
-  margin-top: 40px;
-  padding: 10px 0;
-  .comment-info {
-    color: #999;
-    font-size: 14px;
-  }
-  .comment-title {
-    color: #de8181;
-    font-size: 24px;
-  }
+    border-top: 1px solid #de8181;
+    margin-top: 40px;
+    padding: 10px 0;
+    .comment-info {
+        color: #999;
+        font-size: 14px;
+    }
+    .comment-title {
+        color: #de8181;
+        font-size: 24px;
+    }
 }
 </style>
 
 <style lang="scss">
 #article {
-  background: #fff;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  line-height: 1.5;
-  color: #24292e;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
-  line-height: 1.5;
-  word-wrap: break-word;
-  @import "~assets/css/markdown.scss";
+    background: #fff;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
+    color: #24292e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    @import "~assets/css/markdown.scss";
 }
 </style>
 
