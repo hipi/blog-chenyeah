@@ -38,7 +38,7 @@ marked.setOptions({
     if (["html", "javascript", "css"].includes(lang)) {
       return Prism.highlight(code, prism.languages.lang);
     } else {
-      return Prism.highlight(code, prism.languages["javascript"]);
+      return Prism.highlight(code, prism.languages.javascript);
     }
   }
 });
