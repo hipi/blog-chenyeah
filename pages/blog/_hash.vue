@@ -37,6 +37,12 @@
 import marked from "marked";
 import axios from "axios";
 import gitment from "~/components/gitment";
+import hljs from "highlight.js";
+marked.setOptions({
+  highlight: function(code) {
+    return hljs.highlightAuto(code).value;
+  }
+});
 export default {
   validate({ params }) {
     return Boolean(params.hash); //路由参数校验
