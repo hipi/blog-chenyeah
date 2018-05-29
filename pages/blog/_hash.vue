@@ -40,11 +40,10 @@ import gitment from "~/components/gitment";
 import prism from "prismjs";
 marked.setOptions({
     highlight: function(code, lang) {
-        if (["html", "js", "javascript", "css"].includes(lang)) {
-            return Prism.highlight(code, prism.languages[lang]);
-        } else {
-            return Prism.highlight(code, prism.languages.javascript);
-        }
+        let languages = ["html", "js", "javascript", "css"].includes(lang)
+            ? lang
+            : "javascript";
+        return Prism.highlight(code, prism.languages[languages]);
     }
 });
 export default {
