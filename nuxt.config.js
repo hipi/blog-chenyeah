@@ -27,6 +27,10 @@ module.exports = {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
+        href: "https://cdn.bootcss.com/highlight.js/9.12.0/styles/googlecode.min.css"
+      },
+      {
+        rel: "stylesheet",
         href: "https://fonts.googleapis.com/css?family=Open+Sans"
       },
       // { rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" },
@@ -62,7 +66,7 @@ module.exports = {
           "vue-style-loader!css-loader!sass-loader";
       }
     },
-    vendor: ["axios", "marked", "js-cookie","highlight.js"],
-    // publicPath: "//static.yuyehack.cn/blog/"
+    vendor: ["axios", "marked", "js-cookie", "highlight.js"],
+    publicPath: "//static.yuyehack.cn/blog/"
   }
 };
