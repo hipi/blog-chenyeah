@@ -37,10 +37,14 @@
 import marked from "marked";
 import axios from "axios";
 import gitment from "~/components/gitment";
-import hljs from "highlight.js";
+import prism from "prismjs";
 marked.setOptions({
   highlight: function(code) {
-    return hljs.highlightAuto(code).value;
+    if (["html", "javascript", "css"].includes(lang)) {
+      return Prism.highlight(code, prism.languages.lang);
+    } else {
+      return Prism.highlight(code, prism.languages["markup"]);
+    }
   }
 });
 export default {

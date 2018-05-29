@@ -28,7 +28,7 @@ module.exports = {
       {
         rel: "stylesheet",
         href:
-          "https://cdn.bootcss.com/highlight.js/9.12.0/styles/googlecode.min.css"
+          "http://prismjs.com/themes/prism.css"
       },
       {
         rel: "stylesheet",
