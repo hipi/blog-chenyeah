@@ -24,7 +24,7 @@
         <div class="meta">
           <span>
             <i class="iconfont icon-activity"></i>
-            {{n.add_time.split(" ")[0]}}
+            {{n.add_time}}
           </span>
           <span>
             <i class="iconfont icon-collection_fill"></i>
