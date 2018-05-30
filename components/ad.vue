@@ -1,6 +1,6 @@
 <template>
     <div class="cont">
-        <img src="https://source.unsplash.com/random" alt="">
+        <img src="https://source.unsplash.com/random/400x300" alt="">
     </div>
 </template>
 <style lang="scss" scoped>
