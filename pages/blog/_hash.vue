@@ -4,14 +4,14 @@
     <div class="breadcrumb">
       <span>
         <i class="iconfont icon-activity"></i>
-        {{asyncData.add_time}}
+        {{asyncData.add_time.split(' ')[0]}}
       </span>
       <span>
         <i class="iconfont icon-collection_fill"></i>
       </span>
       <span v-if="asyncData.modify_time">
         <i class="iconfont icon-brush"></i>
-        {{asyncData.modify_time}}
+        {{asyncData.modify_time.split(' ')[0]}}
       </span>
     </div>
     <div class="cover">

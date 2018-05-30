@@ -24,15 +24,11 @@
         <div class="meta">
           <span>
             <i class="iconfont icon-activity"></i>
+            {{n.add_time.split(" ")[0]}}
           </span>
-          <span>{{n.add_time}}</span>
           <span>
             <i class="iconfont icon-collection_fill"></i>
           </span>
-          <span>
-            <i v-if="n.modify_time" class="iconfont icon-brush"></i>
-          </span>
-          <span v-if="n.modify_time"> {{n.modify_time}}</span>
           <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
             <i class="iconfont icon-label"></i>{{n.tag}}
           </nuxt-link>
@@ -222,7 +218,6 @@ export default {
         border-radius: 4px;
       }
     }
-
     .meta {
       margin-top: 10px;
       color: #999;
