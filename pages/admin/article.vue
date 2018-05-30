@@ -22,9 +22,16 @@
           <img ref="articleImg" :class="[n.imgIsBroken?'broken-img':'']" :src="n.cover"> {{n.info}}
         </a>
         <div class="meta">
-          <i class="iconfont icon-activity"></i>
+          <span>
+            <i class="iconfont icon-activity"></i>
+          </span>
           <span>{{n.add_time}}</span>
-          <i v-if="n.modify_time" class="iconfont icon-brush"></i>
+          <span>
+            <i class="iconfont icon-collection_fill"></i>
+          </span>
+          <span>
+            <i v-if="n.modify_time" class="iconfont icon-brush"></i>
+          </span>
           <span v-if="n.modify_time"> {{n.modify_time}}</span>
           <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
             <i class="iconfont icon-label"></i>{{n.tag}}
