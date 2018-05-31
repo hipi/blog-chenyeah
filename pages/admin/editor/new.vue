@@ -212,7 +212,7 @@ export default {
     }
     .content {
         display: flex;
-        height: calc(100vh - 64px);
+        height: calc(100vh - 66px);
         > div {
             flex: 1;
         }
@@ -248,7 +248,7 @@ export default {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
 }
-.content-preview .content-html::-webkit-scrollbar {
+.content-html::-webkit-scrollbar {
     display: none;
 }
 @-webkit-keyframes http-image {
