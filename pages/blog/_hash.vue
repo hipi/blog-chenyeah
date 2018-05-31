@@ -37,15 +37,6 @@
 import marked from "marked";
 import axios from "axios";
 import gitment from "~/components/gitment";
-import prism from "prismjs";
-marked.setOptions({
-    highlight: function(code, lang) {
-        let languages = ["html", "js", "javascript", "css"].includes(lang)
-            ? lang
-            : "javascript";
-        return Prism.highlight(code, prism.languages[languages]);
-    }
-});
 export default {
     validate({ params }) {
         return Boolean(params.hash); //路由参数校验
