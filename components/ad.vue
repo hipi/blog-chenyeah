@@ -8,7 +8,7 @@ import axios from "axios";
 export default {
     data() {
         return {
-            url: "https://api.yuyehack.cn/blog/random"
+            url: "//api.yuyehack.cn/blog/random"
         };
     }
 };
