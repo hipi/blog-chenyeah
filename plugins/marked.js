@@ -1,7 +1,6 @@
 import marked from "marked";
 import prism from "prismjs";
 let myMarkedRenderer = new marked.Renderer();
-console.log(myMarkedRenderer.heading);
 myMarkedRenderer.heading = function(text, level, raw) {
   return `
           <h${level} id="heading-${level}-${text}">
