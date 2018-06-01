@@ -14,10 +14,6 @@
             </p>
         </div>
         <canvas></canvas>
-        <span class="beian">
-            <a href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
-            陈晔版权所有
-        </span>
     </div>
 
 </template>
@@ -160,14 +156,5 @@ a {
 
 a:hover {
     color: #3cafff;
-}
-.beian {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    left: 0;
-    color: #fff;
-    font-size: 12px;
 }
 </style>
