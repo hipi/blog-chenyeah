@@ -46,8 +46,6 @@
     <form action="/blog" class="search">
       <input ref="search" @keydown.enter.prevent="search($event)" v-model="s" placeholder="搜索" name="s" type="text" autocomplete="off">
     </form>
-    <a class="beian" target="_blank" href="http://www.miibeian.gov.cn">苏ICP备16044037号</a>
-
   </div>
 </template>
 <script>
@@ -227,13 +225,6 @@ span {
         border-radius: 0;
     }
 }
-.beian {
-    font-size: 14px;
-    display: inline-block;
-    margin-bottom: 10px;
-    color: #aaa;
-    text-decoration: none;
-}
 @media screen and (max-width: 768px) {
     .cont {
         border-radius: 10px 10px 0 0;
@@ -259,9 +250,6 @@ span {
     } */
     .menu li:nth-child(2),
     .menu li:nth-child(3),
-    .beian {
-        display: none;
-    }
 }
 </style>
 
