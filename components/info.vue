@@ -38,6 +38,9 @@
             <li>
               <a href="mailto:yuyehack@gmail.com">邮箱</a>
             </li>
+            <li>
+              <a href="/Resume.pdf">Resume</a>
+            </li>
           </ul>
         </div>
       </li>
