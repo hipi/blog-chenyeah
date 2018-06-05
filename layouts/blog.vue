@@ -91,7 +91,6 @@ export default {
         display: none;
     }
     .my {
-        background: #fff;
         width: 180px;
         height: fit-content;
         div {
