@@ -38,6 +38,9 @@
             <li>
               <a href="mailto:yuyehack@gmail.com">邮箱</a>
             </li>
+            <li>
+              <a href="/Resume.pdf">Resume</a>
+            </li>
           </ul>
         </div>
       </li>
@@ -211,6 +214,8 @@ span {
 .search {
     border-top: 1px solid #eee;
     padding: 0;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
     input {
         font-size: 14px;
         width: 100%;

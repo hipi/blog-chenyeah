@@ -96,7 +96,6 @@ export default {
         div {
             width: 180px;
             position: fixed;
-            overflow: hidden;
         }
     }
     .container {
