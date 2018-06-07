@@ -84,10 +84,10 @@ export default {
 #index {
     width: 100%;
     height: 100%;
-    background-image: url("/hero@2x.jpg");
     background-position: center;
     background-size: cover;
     position: fixed;
+    background-color:#a5daf3;
 }
 #wrapper {
     position: absolute;
