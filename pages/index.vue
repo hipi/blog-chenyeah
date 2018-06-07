@@ -87,7 +87,7 @@ export default {
     background-position: center;
     background-size: cover;
     position: fixed;
-    background-color:#a5daf3;
+    background-color: #fff;
 }
 #wrapper {
     position: absolute;
@@ -112,15 +112,15 @@ h1 {
     text-transform: uppercase;
     margin: 12px 0;
     left: 4px;
-    background: linear-gradient(to top right,#81c2d6,#dcf7a1,#83fcd8);
+    background: linear-gradient(to top right,#E23352,#EACF36,#E6D8BE);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 h2 {
-    color: #fff;
+    color: #5e6d82;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 20px;
     letter-spacing: 0.12em;
     margin-bottom: 30px;
     left: 3px;
@@ -132,7 +132,7 @@ h2 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 2em;
     margin: 0;
     letter-spacing: 2px;
@@ -150,7 +150,7 @@ canvas {
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #5e6d82;
     transition: color 0.2s ease;
 }
 
