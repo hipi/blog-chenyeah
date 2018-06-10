@@ -8,7 +8,7 @@ import axios from "axios";
 export default {
     data() {
         return {
-            url: "//api.yuyehack.cn/blog/random"
+            url: "https://ws1.sinaimg.cn/large/0079V2lRgy1fs5zcwh50tj30c80c8aaa.jpg"
         };
     }
 };
