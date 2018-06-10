@@ -1,7 +1,7 @@
 <template>
   <div class="cont">
     <i @click="isMusic=!isMusic" class="music iconfont icon-music"></i>
-    <audio v-if="isMusic" loop autoplay src="/music/bg.mp3"></audio>
+    <audio v-if="isMusic" loop autoplay src="https://music.163.com/song/media/outer/url?id=562594322.mp3"></audio>
     <div class="head">
       <nuxt-link to='/blog'>
         <img :class="{play:isMusic}" src="https://www.gravatar.com/avatar/40206d98ff6e85da457c341e4a4ea437" alt="">
