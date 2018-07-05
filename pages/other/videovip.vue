@@ -46,8 +46,8 @@ export default {
     },
     methods: {
         start() {
-            //this.playsrc ="https://player.52laoma.com/ipsign/player.php?v=" + this.url;
-            this.playsrc ="http://zs.lzonel.cn/vip/?url="+this.url;
+            this.playsrc ="https://player.52laoma.com/ipsign/player.php?v=" + this.url;
+            //this.playsrc ="http://zs.lzonel.cn/vip/?url="+this.url;
         },
         play() {
             if (this.url !== "") {
