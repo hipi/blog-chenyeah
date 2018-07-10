@@ -24,9 +24,7 @@ export default {
     head() {
         return {};
     },
-    methods:{
-
-    },
+    methods: {},
     mounted() {
         /* document.addEventListener("touchmove", function(e) {
             e.preventDefault();
@@ -298,7 +296,7 @@ export default {
 h1 {
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 34px;
     letter-spacing: 9px;
     text-transform: uppercase;
     margin: 12px 0;
@@ -309,9 +307,9 @@ h1 {
 }
 
 h2 {
-    color: #55f7da;
+    color: skyblue;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 0.12em;
     margin-bottom: 30px;
     left: 3px;
@@ -323,8 +321,8 @@ h2 {
 }
 
 p {
-    font-size: 20px;
-    line-height: 2em;
+    font-size: 24px;
+    line-height: 1.5;
     margin: 0;
     letter-spacing: 2px;
     color: #fff;
@@ -342,11 +340,12 @@ canvas {
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #f4f5f5;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #55f7da;
+    color: skyblue;
+    text-decoration: underline;
 }
 </style>
