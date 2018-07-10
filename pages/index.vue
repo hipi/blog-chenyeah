@@ -296,7 +296,7 @@ export default {
 h1 {
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 30px;
     letter-spacing: 9px;
     text-transform: uppercase;
     margin: 12px 0;
@@ -309,7 +309,7 @@ h1 {
 h2 {
     color: skyblue;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 0.12em;
     margin-bottom: 30px;
     left: 3px;
@@ -321,7 +321,7 @@ h2 {
 }
 
 p {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.5;
     margin: 0;
     letter-spacing: 2px;
