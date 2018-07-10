@@ -9,6 +9,8 @@ export default {
         return {
             snows: [],
             G: 0.015,
+            minR: 5, //雪花半径
+            maxR: 20, //雪花半径
             W: "",
             H: "",
             ctx: "",
@@ -41,7 +43,7 @@ export default {
                         0.015,
                         Math.random() * this.W,
                         0,
-                        Math.random() * 15 + 5
+                        Math.random() * (this.maxR - this.minR) + this.minR
                     )
                 );
                 this.timer %= this.snowLevelTime;
@@ -51,7 +53,7 @@ export default {
                 s.update();
                 s.draw();
                 // 雪花下落至底部则删除
-                if (s.y >= vm.H) {
+                if (s.y >= vm.H + 2 * (vm.maxR - vm.minR)) {
                     vm.snows.splice(i, 1);
                 }
             });
