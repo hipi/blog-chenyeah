@@ -96,7 +96,7 @@ export default {
             const W = window.innerWidth; // 浏览器可视窗口宽度
             const H = window.innerHeight; // 浏览器可视窗口高度
             // 控制雪花多少的变量，数值越小雪花越多，数值越大雪花越小
-            let snowLevelTime = 150;
+            let snowLevelTime = 250;
             // 时间定时器，当timer > snowLevelTime的时候
             let timer = 0;
             let lastTime = Date.now();
