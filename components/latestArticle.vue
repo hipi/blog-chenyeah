@@ -25,7 +25,7 @@ export default {
         axios
             .post("https://api.yuyehack.cn/blog/article/get_articlelist.php", {
                 page: 1,
-                pageSize: 8,
+                pageSize: 5,
                 except: except
             })
             .then(res => {

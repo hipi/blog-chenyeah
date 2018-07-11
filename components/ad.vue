@@ -1,14 +1,34 @@
 <template>
-  <div class="cont">
-    <img :src="url" alt="">
-  </div>
+    <div class="cont">
+        <div class="list" v-for="(n , i) in adData" :key="i">
+            <a target="_blank" :href="n.url">
+                <img :src="n.imgUrl" :alt="n.title">
+            </a>
+        </div>
+
+    </div>
 </template>
 <script>
 import axios from "axios";
 export default {
     data() {
         return {
-            url: "https://ws1.sinaimg.cn/large/0079V2lRgy1fs5zcwh50tj30c80c8aaa.jpg"
+            adData: [
+                {
+                    title: "aliyun",
+                    imgUrl:
+                        "https://wx2.sinaimg.cn/large/0079V2lRgy1ft5y1z3hyfj306y05k0u4.jpg",
+                    url:
+                        "https://promotion.aliyun.com/ntms/act/xsgroup/buy.html?group=TnO9tWAMYq"
+                },
+                {
+                    title: "tencent",
+                    imgUrl:
+                        "https://wx2.sinaimg.cn/large/0079V2lRgy1ft5y3j4pauj306y06ywf0.jpg",
+                    url:
+                        "https://cloud.tencent.com/redirect.php?redirect=1001&cps_key=e5d789ce9240a104fbcd388b3916604f"
+                }
+            ]
         };
     }
 };
@@ -16,13 +36,33 @@ export default {
 
 <style lang="scss" scoped>
 .cont {
-    background: #fff;
+    background: transparent;
     border-radius: 10px;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
-    img {
-        display: block;
-        width: 100%;
-        border-radius: 10px;
+    // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
+    .list {
+        margin-bottom: 10px;
+        a {
+            position: relative;
+            display: block;
+            img {
+                display: block;
+                width: 100%;
+                border-radius: 10px;
+            }
+            &:after {
+                position: absolute;
+                content: "广告";
+                font-size: 12px;
+                color: #fff;
+                border: 1px solid;
+                background: #000;
+                opacity: 0.4;
+                bottom: 4px;
+                right: 4px;
+                padding: 1px 2px;
+                border-radius: 1px;
+            }
+        }
     }
 }
 </style>
