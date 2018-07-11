@@ -4,6 +4,7 @@
  * @param {y} y
  * @param {半径或长宽} radius
  */
+const _img = new Image();
 class Snow {
     constructor(ctx, snowImage, G, x, y, radius) {
         this.ctx = ctx;
@@ -58,10 +59,10 @@ class Snow {
         this.ctx.translate(this.x, this.y);
         // 将画布顺时针旋转的角度
         this.ctx.rotate((this.deg * Math.PI) / 180);
-        let img = new Image();
-        img.src = snowImage;
+        //let img = new Image();
+        _img.src = snowImage;
         // 绘制雪花图像，因为画布坐标移动到了(x, y)，所以从0,0开始就是(-radius, radius)
-        this.ctx.drawImage(img, -radius, -radius, radius * 2, radius * 2);
+        this.ctx.drawImage(_img, -radius, -radius, radius * 2, radius * 2);
         // 恢复canvas旋转、translate等操作的状态，一般与save配合使用就是恢复到上一个save的状态
         // 如果不恢复上一个状态的话，话不旋转角度坐标都没变化，也就不会出现动画效果，必须恢复
         this.ctx.restore();
