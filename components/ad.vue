@@ -15,18 +15,18 @@ export default {
         return {
             adData: [
                 {
+                    title: "tencent",
+                    imgUrl:
+                        "https://wx1.sinaimg.cn/large/0079V2lRgy1ft5yx05491j30dw08c76w.jpg",
+                    url:
+                        "https://cloud.tencent.com/redirect.php?redirect=1010&cps_key=e5d789ce9240a104fbcd388b3916604f"
+                },
+                {
                     title: "aliyun",
                     imgUrl:
                         "https://wx2.sinaimg.cn/large/0079V2lRgy1ft5y1z3hyfj306y05k0u4.jpg",
                     url:
                         "https://promotion.aliyun.com/ntms/act/xsgroup/buy.html?group=TnO9tWAMYq"
-                },
-                {
-                    title: "tencent",
-                    imgUrl:
-                        "https://ws2.sinaimg.cn/large/0079V2lRgy1ft5yow9h1yj308c02swes.jpg",
-                    url:
-                        "https://cloud.tencent.com/redirect.php?redirect=1001&cps_key=e5d789ce9240a104fbcd388b3916604f"
                 }
             ]
         };
