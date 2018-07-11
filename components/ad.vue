@@ -24,7 +24,7 @@ export default {
                 {
                     title: "tencent",
                     imgUrl:
-                        "https://wx2.sinaimg.cn/large/0079V2lRgy1ft5y3j4pauj306y06ywf0.jpg",
+                        "https://ws2.sinaimg.cn/large/0079V2lRgy1ft5yow9h1yj308c02swes.jpg",
                     url:
                         "https://cloud.tencent.com/redirect.php?redirect=1001&cps_key=e5d789ce9240a104fbcd388b3916604f"
                 }
