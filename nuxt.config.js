@@ -67,6 +67,6 @@ module.exports = {
       }
     },
     vendor: ["axios", "marked", "js-cookie", "prismjs"],
-    //publicPath: "//static.yuyehack.cn/blog/"
+    publicPath: "//static.yuyehack.cn/blog/"
   }
 };
