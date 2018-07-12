@@ -17,7 +17,8 @@
             <hitokoto></hitokoto>
             <div ref="affix" :class="{affix:isAffix}">
                 <latestArticle></latestArticle>
-                <ad></ad>
+
+                <!-- <ad></ad> -->
             </div>
 
         </div>

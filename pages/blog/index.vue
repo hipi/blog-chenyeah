@@ -4,6 +4,14 @@
         <div v-if="s&&s!==''" class="ht">{{s}} - 搜索结果</div>
         <div v-else class="ht">最新文章</div>
         <div class="content">
+            <div class="list" style="padding:10px 0">
+                <a target="_blank" href="https://t.cn/Rdg1Jer">
+                    <h2 style="margin: 0;font-size:16px">
+                        <i style="color:#de8181;font-size:20px" class="iconfont icon-praise"></i>
+                        掘金收藏集（学习文章）
+                    </h2>
+                </a>
+            </div>
             <div v-if="list.length>0" class="list" v-for="(n,i) in list" :key="i">
                 <nuxt-link class="title" :to="`/blog/${n.hash}`">
                     <h2>
