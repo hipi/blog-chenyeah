@@ -111,7 +111,7 @@ export default {
     },
     eventListen() {
       let ele = document.documentElement;
-      if (ele.clientWidth > 768) {
+      if (ele.clientWidth > 1024) {
         if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
           if (this.currentPage < this.totalPages) {
             if (this.isLoad) {

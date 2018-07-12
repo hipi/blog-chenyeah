@@ -51,7 +51,7 @@ export default {
     methods: {
         eventListen() {
             let vm = this;
-            if (document.documentElement.clientWidth > 768) {
+            if (document.documentElement.clientWidth > 1024) {
                 if (
                     vm.$refs.affix.offsetTop -
                         document.documentElement.scrollTop <=
@@ -121,7 +121,7 @@ export default {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     #main {
         padding-top: 10px;
         display: block;
@@ -150,6 +150,7 @@ export default {
         .container {
             width: 94%;
             margin: 10px auto;
+            max-width: 94%;
         }
         .sidebar {
             width: 94%;

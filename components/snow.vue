@@ -65,7 +65,7 @@ export default {
             canvas.width = this.W;
             canvas.height = this.H;
             this.ctx = canvas.getContext("2d");
-            if (this.W < 768) {
+            if (this.W < 1024) {
                 this.snowLevelTime = 350;
             }
             this.loop();

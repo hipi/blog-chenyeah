@@ -39,11 +39,17 @@ export default {
     background: transparent;
     border-radius: 10px;
     // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     .list {
         margin-bottom: 10px;
+        width: 260px;
+
         a {
             position: relative;
             display: block;
+
             img {
                 display: block;
                 width: 100%;

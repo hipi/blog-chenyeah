@@ -109,7 +109,7 @@ export default {
         },
         eventListen() {
             let ele = document.documentElement;
-            if (ele.clientWidth > 768) {
+            if (ele.clientWidth > 1024) {
                 if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
                     if (this.currentPage < this.totalPages) {
                         if (this.isLoad) {
@@ -134,7 +134,7 @@ export default {
         this.replaceBrokenImg();
         let vm = this;
         let ele = document.documentElement;
-        if (ele.clientWidth > 768) {
+        if (ele.clientWidth > 1024) {
             window.addEventListener("scroll", vm.eventListen);
         }
     },
@@ -230,7 +230,7 @@ export default {
         display: none;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .content {
         .mloading {
             display: block;

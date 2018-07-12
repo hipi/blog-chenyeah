@@ -230,7 +230,7 @@ span {
         border-radius: 0;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .cont {
         border-radius: 10px 10px 0 0;
         box-shadow: none;
