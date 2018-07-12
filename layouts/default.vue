@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
     /* .container{
         background:#fff;
         position:fixed;

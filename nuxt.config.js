@@ -63,8 +63,8 @@ module.exports = {
                 const vueLoader = config.module.rules.find(
                     rule => rule.loader === "vue-loader"
                 );
-                vueLoader.options.loaders.sass =
-                    "vue-style-loader!css-loader!sass-loader";
+                vueLoader.options.loaders.less =
+                    "vue-style-loader!css-loader!less-loader";
             }
         },
         vendor: ["axios", "marked", "js-cookie", "prismjs"],

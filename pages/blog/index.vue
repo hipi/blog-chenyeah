@@ -161,7 +161,7 @@ export default {
     }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .ht {
     padding: 0 30px;
     height: 56px;

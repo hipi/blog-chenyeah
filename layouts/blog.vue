@@ -76,7 +76,7 @@ export default {
     }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 #main {
     display: flex;
     margin: 0 auto;

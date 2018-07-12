@@ -138,7 +138,7 @@ export default {
     mounted() {}
 };
 </script>
-<style scoped lang="scss">
+<style scoped lang="less">
 #edit {
     .top {
         display: flex;
@@ -275,7 +275,7 @@ export default {
     }
 }
 </style>
-<style lang="scss">
+<style lang="less">
 #content-html {
     overflow: auto;
     padding: 10px;
@@ -289,6 +289,6 @@ export default {
 
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    @import "~assets/css/markdown.scss";
+    @import "~assets/css/markdown.less";
 }
 </style>

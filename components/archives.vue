@@ -8,7 +8,7 @@
         </div>
     </div>
 </template>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .cont{
     border-radius:10px;
     background:#fff;

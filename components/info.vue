@@ -85,7 +85,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .cont {
     position: relative;
     border-radius: 10px;

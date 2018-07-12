@@ -62,7 +62,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .fc {
     margin: 0 auto;
     padding-top: 40px;

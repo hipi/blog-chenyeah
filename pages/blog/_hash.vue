@@ -88,7 +88,7 @@ export default {
     beforeDestroy() {}
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .content {
     padding: 20px;
 }
@@ -138,7 +138,7 @@ export default {
 }
 </style>
 
-<style lang="scss">
+<style lang="less">
 #article {
     background: #fff;
     color: #24292e;
@@ -151,7 +151,7 @@ export default {
 
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    @import "~assets/css/markdown.scss";
+    @import "~assets/css/markdown.less";
 }
 </style>
 

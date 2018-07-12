@@ -85,7 +85,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 #admin {
   .topbar {
     position: fixed;
@@ -216,6 +216,6 @@ export default {
   }
 }
 </style>
-<style lang='scss'>
+<style lang='less'>
 </style>
 
