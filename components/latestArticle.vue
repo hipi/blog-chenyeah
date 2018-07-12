@@ -37,41 +37,41 @@ export default {
 
 <style lang="scss" scoped>
 .cont {
-    background: #fff;
     border-radius: 10px;
+    background: #fff;
 }
 .ht {
-    height: 56px;
-    line-height: 56px;
     padding: 0 30px;
+    height: 56px;
     border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     background-image: linear-gradient(
         rgba(200, 200, 200, 0),
         rgba(200, 200, 200, 0.12)
     );
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     color: rgba(0, 0, 0, 0.4);
+    line-height: 56px;
 }
 .content {
     ul {
-        padding: 0;
         margin: 0;
+        padding: 0;
         li {
-            list-style: none;
             padding: 13px;
-            -webkit-transition: all 0.1s ease-in;
-            transition: all 0.1s ease-in;
             color: rgba(0, 0, 0, 0.5);
+            list-style: none;
             font-size: 14px;
             line-height: 18px;
+            -webkit-transition: all 0.1s ease-in;
+            transition: all 0.1s ease-in;
             &:last-child {
                 border-radius: 0 0 10px 10px;
             }
             a {
                 color: rgba(0, 0, 0, 0.5);
+                text-decoration: none;
                 font-size: 14px;
                 line-height: 18px;
-                text-decoration: none;
             }
             &:hover {
                 background: #44cef6;

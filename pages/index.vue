@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import Snow from "~/components/snow.vue"
+import Snow from "~/components/snow.vue";
 export default {
     head() {
         return {};
     },
-    components:{
+    components: {
         Snow
     },
     methods: {},
@@ -34,49 +34,51 @@ export default {
 
 <style scoped>
 #index {
+    position: fixed;
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    position: fixed;
     background-color: #fff;
     background-image: url(~/assets/img/index/bac.jpg);
+    background-position: center;
+    background-size: cover;
 }
 #wrapper {
     position: absolute;
+    top: 50%;
     left: 0;
+    left: 50%;
+    z-index: 999;
+    margin-top: -160px;
+    margin-left: -160px;
     width: 320px;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    margin-left: -160px;
-    margin-top: -160px;
+
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    z-index: 999;
 }
 
 h1 {
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    letter-spacing: 9px;
-    text-transform: uppercase;
-    margin: 12px 0;
     left: 4px;
+    margin: 12px 0;
     background: linear-gradient(to top right, #e23352, #eacf36, #e6d8be);
     -webkit-background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 9px;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
     -webkit-text-fill-color: transparent;
 }
 
 h2 {
+    left: 3px;
+    margin-bottom: 30px;
     color: skyblue;
+    letter-spacing: 0.12em;
     font-weight: normal;
     font-size: 20px;
-    letter-spacing: 0.12em;
-    margin-bottom: 30px;
-    left: 3px;
 }
 
 h1,
@@ -85,11 +87,11 @@ h2 {
 }
 
 p {
+    margin: 0;
+    color: #fff;
+    letter-spacing: 2px;
     font-size: 20px;
     line-height: 1.5;
-    margin: 0;
-    letter-spacing: 2px;
-    color: #fff;
 }
 
 .snow {
@@ -101,8 +103,8 @@ p {
 }
 
 a {
-    text-decoration: none;
     color: #f4f5f5;
+    text-decoration: none;
     transition: color 0.2s ease;
 }
 

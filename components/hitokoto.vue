@@ -41,26 +41,26 @@ export default {
 
 <style lang="scss" scoped>
 .cont {
-    background: #fff;
     border-radius: 10px;
+    background: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 .ht {
-    height: 56px;
-    line-height: 56px;
     padding: 0 30px;
+    height: 56px;
     border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     background-image: linear-gradient(
         rgba(200, 200, 200, 0),
         rgba(200, 200, 200, 0.12)
     );
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     color: rgba(0, 0, 0, 0.4);
+    line-height: 56px;
 }
 .content {
     padding: 20px 10px;
-    font-size: 14px;
     color: #444;
+    font-size: 14px;
     line-height: 18px;
 }
 </style>

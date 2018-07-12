@@ -89,38 +89,45 @@ export default {
 #admin {
   .topbar {
     position: fixed;
-    left: 0;
     right: 0;
-    height: 50px;
-    background-image: url("~assets/img/admin/texture.png");
-    background-color: #93b5cf;
-    color: #fff;
+    left: 0;
     display: flex;
+    height: 50px;
+    background-color: #93b5cf;
+    background-image: url("~assets/img/admin/texture.png");
+    color: #fff;
     .logo {
       width: 50px;
       background: #fff;
       img {
+        display: block;
         width: 50px;
         height: 50px;
-        display: block;
       }
     }
     .logo + div {
-      padding-right: 20px;
-      line-height: 50px;
       flex: 1;
+      padding-right: 20px;
       text-align: right;
+      line-height: 50px;
     }
   }
   .container {
     position: absolute;
     top: 50px;
     bottom: 0;
-    padding: 0;
     overflow-y: auto;
-
+    padding: 0;
     width: 100vw;
     .sidebar {
+      position: fixed;
+      overflow-y: auto;
+      width: 200px;
+      height: 100vh;
+      background-color: #d4d6dc;
+      color: #fff;
+      text-align: center;
+      transition: all 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -137,19 +144,12 @@ export default {
           opacity: 0;
         }
       }
-      color: #fff;
-      width: 200px;
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-      background-color: #d4d6dc;
-      text-align: center;
-      transition: all 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
       &.sidebar-mini {
         width: 50px;
         transform: translate3d(0px, 0px, 0px);
         .menu-name {
           animation: fadeOut 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+
           animation-fill-mode: forwards;
         }
       }
@@ -157,30 +157,31 @@ export default {
         display: none;
       }
       li.menu-top {
-        background: #575f6f;
         height: 30px;
-        line-height: 30px;
         border-bottom: 0;
+        background: #575f6f;
         list-style: none;
+        line-height: 30px;
         &:hover {
           background: #575f6f;
         }
       }
       .menu-c {
-        list-style: none;
-        background: #aeb3be;
+        display: block;
         height: 60px;
+        background: #aeb3be;
+        color: #fff;
+        list-style: none;
+        text-decoration: none;
         line-height: 60px;
         cursor: pointer;
-        display: block;
-        text-decoration: none;
-        color: #fff;
         .menu-name {
-          animation: fadeIn 1s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-          animation-fill-mode: forwards;
           display: inline-block;
           width: 100px;
           text-align: left;
+          animation: fadeIn 1s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+
+          animation-fill-mode: forwards;
         }
         &.active {
           background: #626c83;
@@ -196,15 +197,15 @@ export default {
           }
         }
         span {
+          display: inline-block;
           margin-left: 10px;
           color: #fafafa;
-          display: inline-block;
         }
       }
       .menu-c {
         .icon {
-          font-size: 30px;
           vertical-align: sub;
+          font-size: 30px;
         }
       }
     }

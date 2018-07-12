@@ -64,48 +64,49 @@ export default {
 
 <style lang="scss" scoped>
 .fc {
-    width: 900px;
     margin: 0 auto;
     padding-top: 40px;
+    width: 900px;
 }
 h2 {
+    margin-bottom: 40px;
     color: #3cafff;
     text-align: center;
-    margin-bottom: 40px;
 }
 .search {
     font-size: 0;
     input {
-        box-sizing: border-box;
         position: relative;
         z-index: 2;
-        width: 850px;
+        box-sizing: border-box;
         margin-bottom: 0;
         padding: 0 10px;
+        width: 850px;
         height: 40px;
-        font-size: 16px;
+        outline: none;
         border: 1px solid #3cafff;
+        border-radius: 4px 0 0 4px;
+        color: #555;
+        font-size: 16px;
         &:focus {
             border: 1px solid #3cafff;
         }
-        outline: none;
-        color: #555;
-        border-radius: 4px 0 0 4px;
     }
     span {
         display: inline-block;
         width: 50px;
         height: 40px;
-        background: #3cafff;
-        vertical-align: top;
-        vertical-align: top;
         border-radius: 0 4px 4px 0;
+        background: #3cafff;
         color: #fff;
+        vertical-align: top;
+        vertical-align: top;
+        text-align: center;
         font-size: 16px;
         line-height: 40px;
-        text-align: center;
-        user-select: none;
         cursor: pointer;
+
+        user-select: none;
     }
 }
 .info {
@@ -117,10 +118,10 @@ h2 {
     }
 }
 .v {
-    width: 960px;
-    height: 540px;
     display: block;
     margin: 0 auto;
+    width: 960px;
+    height: 540px;
     background: black;
     #video {
         width: 100%;
@@ -128,19 +129,19 @@ h2 {
     }
 }
 .jia {
-    width: 960px;
-    height: 540px;
-    display: block;
-    margin: 0 auto;
-    background: #ccc;
     position: relative;
+    display: block;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
+    width: 960px;
+    height: 540px;
+    background: #ccc;
     span {
+        position: absolute;
         width: 60px;
         height: 60px;
-        position: absolute;
         // background: #fff;
         border-radius: 50%;
         cursor: pointer;
@@ -149,9 +150,9 @@ h2 {
 
 @media only screen and (max-width: 980px) {
     .fc {
+        box-sizing: border-box;
         padding: 0 20px;
         width: 100%;
-        box-sizing: border-box;
         .search {
             text-align: center;
         }
@@ -160,21 +161,21 @@ h2 {
         }
     }
     .v {
-        height: auto;
         width: 100%;
+        height: auto;
         background: transparent;
         #video {
+            display: block !important;
             margin: 0 auto;
             width: 90%;
             height: 250px;
-            display: block !important;
         }
     }
     .jia {
-        height: 250px;
-        width: 90%;
         margin: 0 auto;
         margin-bottom: 20px;
+        width: 90%;
+        height: 250px;
     }
 }
 </style>

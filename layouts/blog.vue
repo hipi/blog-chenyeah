@@ -1,27 +1,27 @@
 <template>
-  <div id="main">
-    <div class="minfo">
-    </div>
-    <div class="my">
-      <div>
-        <info></info>
-      </div>
-    </div>
-    <div class="container">
-      <div class="content">
-        <nuxt/>
-      </div>
-    </div>
-    <div class="sidebar">
-      <!-- <msg></msg> -->
-      <hitokoto></hitokoto>
-      <div ref="affix" :class="{affix:isAffix}">
-        <latestArticle></latestArticle>
-        <ad></ad>
-      </div>
+    <div id="main">
+        <div class="minfo">
+        </div>
+        <div class="my">
+            <div>
+                <info></info>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                <nuxt/>
+            </div>
+        </div>
+        <div class="sidebar">
+            <!-- <msg></msg> -->
+            <hitokoto></hitokoto>
+            <div ref="affix" :class="{affix:isAffix}">
+                <latestArticle></latestArticle>
+                <ad></ad>
+            </div>
 
+        </div>
     </div>
-  </div>
 </template>
 <script>
 import Cookie from "js-cookie";
@@ -78,11 +78,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 #main {
-    max-width: 1280px;
+    display: flex;
+    margin: 0 auto;
     padding-top: 80px;
     padding-bottom: 30px;
-    margin: 0 auto;
-    display: flex;
+    max-width: 1280px;
 
     > div {
         border-radius: 10px;
@@ -94,16 +94,16 @@ export default {
         width: 180px;
         height: fit-content;
         div {
-            width: 180px;
             position: fixed;
+            width: 180px;
         }
     }
     .container {
-        background: #fff;
-        margin: 0 20px;
-        height: fit-content;
         flex: 1;
+        margin: 0 20px;
         max-width: 800px;
+        height: fit-content;
+        background: #fff;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02),
             0 4px 10px rgba(0, 0, 0, 0.06);
     }
@@ -115,46 +115,46 @@ export default {
         }
         .affix {
             position: fixed;
-            width: 260px;
             top: 20px;
+            width: 260px;
         }
     }
 }
 
 @media screen and (max-width: 1024px) {
     #main {
-        padding-top: 10px;
         display: block;
+        padding-top: 10px;
         padding-bottom: 0;
         .minfo {
             display: block;
         }
         .my {
-            width: 94%;
             margin: 0 auto;
+            width: 94%;
             div {
                 position: relative;
                 width: 100%;
             }
         }
         .bread {
-            height: 40px;
-            width: 94%;
             margin: 0 auto;
-            line-height: 40px;
-            text-align: center;
-            background: #fff;
-            border-radius: 0 0 10px 10px;
+            width: 94%;
+            height: 40px;
             border-top: 1px solid #eee;
+            border-radius: 0 0 10px 10px;
+            background: #fff;
+            text-align: center;
+            line-height: 40px;
         }
         .container {
-            width: 94%;
             margin: 10px auto;
             max-width: 94%;
+            width: 94%;
         }
         .sidebar {
-            width: 94%;
             margin: 10px auto;
+            width: 94%;
             > div {
                 margin-top: 10px;
                 margin-bottom: 0;

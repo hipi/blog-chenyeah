@@ -141,8 +141,8 @@ export default {
 <style scoped lang="scss">
 #edit {
     .top {
-        height: 60px;
         display: flex;
+        height: 60px;
         border-bottom: 1px solid #eee;
         .title {
             width: 500px;
@@ -150,69 +150,70 @@ export default {
             .title-input {
                 margin: 0;
                 padding: 0;
-                font-weight: 700;
-                color: #333;
-                border: none;
-                outline: none;
+                padding: 0 20px;
                 width: 100%;
                 height: 100%;
-                padding: 0 20px;
+                outline: none;
+                border: none;
+                color: #333;
+                font-weight: 700;
                 font-size: 24px;
             }
         }
         .info {
             flex: 1;
             textarea {
+                padding: 10px;
                 width: 100%;
                 height: 100%;
-                border: 0;
-                resize: none;
                 outline: none;
+                border: 0;
                 font-size: 16px;
-                padding: 10px;
+                resize: none;
             }
         }
         .tag {
             width: 80px;
-            border-left: 1px solid #eee;
             border-right: 1px solid #eee;
+            border-left: 1px solid #eee;
             input {
                 margin: 0;
                 padding: 0;
-                font-size: 12px;
-                font-weight: 700;
-                color: #333;
-                border: none;
-                outline: none;
+                padding: 0 10px;
                 width: 100%;
                 height: 100%;
-                padding: 0 10px;
+                outline: none;
+                border: none;
+                color: #333;
+                font-weight: 700;
+                font-size: 12px;
             }
         }
         .cover {
-            border-right: 1px solid #eee;
             width: 200px;
+            border-right: 1px solid #eee;
             input {
                 margin: 0;
                 padding: 0;
-                font-size: 12px;
-                font-weight: 700;
-                color: #333;
-                border: none;
-                outline: none;
+                padding: 0 10px;
                 width: 100%;
                 height: 100%;
-                padding: 0 10px;
+                outline: none;
+                border: none;
+                color: #333;
+                font-weight: 700;
+                font-size: 12px;
             }
         }
         .sub {
-            font-size: 16px;
-            line-height: 60px;
-            color: #007fff;
-            cursor: pointer;
-            text-align: center;
             width: 80px;
             background: #fff;
+            color: #007fff;
+            text-align: center;
+            font-size: 16px;
+            line-height: 60px;
+            cursor: pointer;
+
             user-select: none;
         }
     }
@@ -224,30 +225,30 @@ export default {
         }
         .editor-box {
             textarea {
+                margin: 0;
+                padding: 10px;
+                width: 100%;
+                height: 100%;
+                outline: none;
+                border: 0;
+                color: #2c3e50;
+                font-size: 15px;
                 font-family: Menlo, "Ubuntu Mono", Consolas, "Courier New",
                     "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei",
                     sans-serif;
-                border: 0;
-                resize: none;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 10px;
-                font-size: 15px;
-                outline: none;
                 line-height: 1.5;
-                color: #2c3e50;
+                resize: none;
             }
         }
     }
 }
 .content-preview {
-    display: flex;
-    flex-direction: column;
     position: relative;
-    background-color: #fff;
+    display: flex;
     overflow: hidden;
+    flex-direction: column;
     border-left: 1px solid #eee;
+    background-color: #fff;
 }
 .preview-footer {
     -webkit-box-flex: 0;
@@ -276,17 +277,18 @@ export default {
 </style>
 <style lang="scss">
 #content-html {
-    padding: 10px;
     overflow: auto;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    line-height: 1.5;
+    padding: 10px;
     color: #24292e;
+    word-wrap: break-word;
+    font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
         sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
     line-height: 1.5;
-    word-wrap: break-word;
+    line-height: 1.5;
+
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     @import "~assets/css/markdown.scss";
 }
 </style>

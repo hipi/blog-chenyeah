@@ -93,40 +93,40 @@ export default {
     padding: 20px;
 }
 .title {
-    font-size: 30px;
-    color: #444;
     margin-top: 0;
     margin-bottom: 10px;
-    line-height: 42px;
-    font-weight: 400;
+    color: #444;
     text-transform: none;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 42px;
 }
 .breadcrumb {
     margin-bottom: 20px;
     font-size: 16px;
 }
 .cover {
-    margin-bottom: 20px;
     overflow: hidden;
+    margin-bottom: 20px;
     img {
-        border-radius: 4px;
         display: block;
+        margin: 0 auto;
         max-width: 100%;
         max-height: 400px;
-        margin: 0 auto;
+        border-radius: 4px;
     }
 }
 .info {
-    color: #de8181;
     margin-bottom: 20px;
     padding-left: 1em;
     border-left: 4px solid #de8181;
+    color: #de8181;
     line-height: 1.5;
 }
 .comment {
-    border-top: 1px solid #de8181;
     margin-top: 40px;
     padding: 10px 0;
+    border-top: 1px solid #de8181;
     .comment-info {
         color: #999;
         font-size: 14px;
@@ -141,15 +141,16 @@ export default {
 <style lang="scss">
 #article {
     background: #fff;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    line-height: 1.5;
     color: #24292e;
+    word-wrap: break-word;
+    font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
         sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
     line-height: 1.5;
-    word-wrap: break-word;
+    line-height: 1.5;
+
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     @import "~assets/css/markdown.scss";
 }
 </style>

@@ -67,10 +67,10 @@ export default {
 }
 .up {
     float: left;
-    width: 204px;
     margin: 10px;
     margin-right: 0;
     margin-bottom: 0;
+    width: 204px;
     input {
         display: none;
     }
@@ -78,9 +78,9 @@ export default {
         display: inline-block;
         width: 100%;
         height: 124px;
-        line-height: 124px;
-        text-align: center;
         border: 1px solid #ccc;
+        text-align: center;
+        line-height: 124px;
         cursor: pointer;
         .icon {
             font-size: 60px;
@@ -88,16 +88,16 @@ export default {
     }
 }
 .list {
-    width: 204px;
     float: left;
     margin: 10px;
     margin-right: 0;
     margin-bottom: 0;
+    width: 204px;
     > a {
-        width: 100%;
-        overflow: hidden;
-        height: 124px;
         display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 124px;
         img {
             display: block;
             width: 100%;
@@ -105,10 +105,10 @@ export default {
     }
     input {
         margin-top: 10px;
-        background: transparent;
         width: 100%;
-        border: none;
         outline: none;
+        border: none;
+        background: transparent;
         text-align: center;
     }
 }

@@ -36,12 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 .cont {
-    background: transparent;
-    border-radius: 10px;
     // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 10px;
+    background: transparent;
     .list {
         margin-bottom: 10px;
         width: 260px;
@@ -57,16 +57,16 @@ export default {
             }
             &:after {
                 position: absolute;
+                right: 4px;
+                bottom: 4px;
+                padding: 1px 2px;
+                border: 1px solid;
+                border-radius: 1px;
+                background: #000;
+                color: #fff;
                 content: "广告";
                 font-size: 12px;
-                color: #fff;
-                border: 1px solid;
-                background: #000;
                 opacity: 0.4;
-                bottom: 4px;
-                right: 4px;
-                padding: 1px 2px;
-                border-radius: 1px;
             }
         }
     }

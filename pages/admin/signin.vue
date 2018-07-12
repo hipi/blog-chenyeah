@@ -74,25 +74,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 #signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     .pop {
-        max-width: 432px;
-        background: #fff;
         /* min-width: 330px; */
         margin: 0 40px;
+        max-width: 432px;
         width: 100%;
+        background: #fff;
 
         .pop-content {
             .logo {
-                height: 274px;
-                padding: 30px 40px 10px;
                 display: flex;
-                justify-content: center;
                 align-items: center;
+                justify-content: center;
+                padding: 30px 40px 10px;
+                height: 274px;
                 img {
                     display: block;
                     max-width: 100%;
@@ -102,38 +102,38 @@ export default {
                 padding: 0 40px 10px;
                 > div {
                     display: flex;
+                    align-items: center;
                     height: 48px;
                     border-bottom: 1px solid #ebebeb;
                     line-height: 48px;
-                    align-items: center;
                     span {
                         display: inline-block;
                         width: 100px;
                         height: 30px;
-                        line-height: 30px;
-                        color: #77839c;
                         border-right: 1px solid #ebebeb;
+                        color: #77839c;
+                        line-height: 30px;
                     }
                     input {
-                        background: transparent;
-                        border: none;
-                        outline: none;
-                        resize: none;
-                        height: 48px;
                         padding: 0 20px;
                         width: 100%;
+                        height: 48px;
+                        outline: none;
+                        border: none;
+                        background: transparent;
+                        resize: none;
                     }
                 }
             }
             .pop-signin {
                 width: 100%;
-                background: #0084ff;
-                border: 1px solid #0084ff;
-                color: #fff;
                 height: 60px;
-                line-height: 60px;
+                border: 1px solid #0084ff;
+                background: #0084ff;
+                color: #fff;
                 text-align: center;
                 font-size: 20px;
+                line-height: 60px;
                 cursor: pointer;
             }
         }

@@ -1,41 +1,41 @@
 <template>
-  <div>
+    <div>
 
-    <div v-if="s&&s!==''" class="ht">{{s}} - 搜索结果</div>
-    <div v-else class="ht">最新文章</div>
-    <div class="content">
-      <div v-if="list.length>0" class="list" v-for="(n,i) in list" :key="i">
-        <nuxt-link class="title" :to="`/blog/${n.hash}`">
-          <h2>
-            <i v-if="n.top" style="color:#de8181;font-size:20px" class="iconfont icon-praise"></i>
-            {{n.title}}
-          </h2>
-        </nuxt-link>
-        <a class="info">
-          <img ref="articleImg" :class="[n.imgIsBroken?'broken-img':'']" :src="n.cover"> {{n.info}}
-        </a>
-        <div class="meta">
-          <span>
-            <i class="iconfont icon-activity"></i>
-            {{n.add_time}}
-          </span>
-          <span class="star">
-            <i class="iconfont icon-collection_fill"></i>
-          </span>
-          <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
-            <i class="iconfont icon-label"></i>{{n.tag}}
-          </nuxt-link>
+        <div v-if="s&&s!==''" class="ht">{{s}} - 搜索结果</div>
+        <div v-else class="ht">最新文章</div>
+        <div class="content">
+            <div v-if="list.length>0" class="list" v-for="(n,i) in list" :key="i">
+                <nuxt-link class="title" :to="`/blog/${n.hash}`">
+                    <h2>
+                        <i v-if="n.top" style="color:#de8181;font-size:20px" class="iconfont icon-praise"></i>
+                        {{n.title}}
+                    </h2>
+                </nuxt-link>
+                <a class="info">
+                    <img ref="articleImg" :class="[n.imgIsBroken?'broken-img':'']" :src="n.cover"> {{n.info}}
+                </a>
+                <div class="meta">
+                    <span>
+                        <i class="iconfont icon-activity"></i>
+                        {{n.add_time}}
+                    </span>
+                    <span class="star">
+                        <i class="iconfont icon-collection_fill"></i>
+                    </span>
+                    <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
+                        <i class="iconfont icon-label"></i>{{n.tag}}
+                    </nuxt-link>
+                </div>
+            </div>
+            <div v-if="list.length==0" class="nodata">
+                暂无文章
+            </div>
+            <div class="mloading" @click="mload" v-if="currentPage<totalPages">
+                继续加载
+            </div>
         </div>
-      </div>
-      <div v-if="list.length==0" class="nodata">
-        暂无文章
-      </div>
-      <div class="mloading" @click="mload" v-if="currentPage<totalPages">
-        继续加载
-      </div>
-    </div>
 
-  </div>
+    </div>
 </template>
 <script>
 import axios from "axios";
@@ -163,16 +163,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ht {
-    height: 56px;
-    line-height: 56px;
     padding: 0 30px;
+    height: 56px;
     border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     background-image: linear-gradient(
         rgba(200, 200, 200, 0),
         rgba(200, 200, 200, 0.12)
     );
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     color: rgba(0, 0, 0, 0.4);
+    line-height: 56px;
 }
 .content {
     padding: 0 30px;
@@ -183,11 +183,11 @@ export default {
             color: #333;
             text-decoration: none;
             h2 {
-                font-size: 24px;
-                line-height: 30px;
                 margin: 0 0 10px;
                 color: #444;
                 font-weight: 400;
+                font-size: 24px;
+                line-height: 30px;
             }
             &:hover {
                 h2 {
@@ -196,18 +196,18 @@ export default {
             }
         }
         .info {
-            min-height: 80px;
-            font-size: 14px;
-            margin: 0;
-            color: #696969;
-            line-height: 24px;
-            letter-spacing: 1px;
             display: block;
+            margin: 0;
+            min-height: 80px;
+            color: #696969;
+            letter-spacing: 1px;
+            font-size: 14px;
+            line-height: 24px;
             img {
-                max-width: 180px;
-                max-height: 80px;
                 float: right;
                 margin-left: 10px;
+                max-width: 180px;
+                max-height: 80px;
                 border-radius: 4px;
             }
         }
@@ -222,9 +222,9 @@ export default {
         }
     }
     .nodata {
-        line-height: 100px;
         color: #999;
         text-align: center;
+        line-height: 100px;
     }
     .mloading {
         display: none;
@@ -234,10 +234,10 @@ export default {
     .content {
         .mloading {
             display: block;
-            cursor: pointer;
-            line-height: 40px;
             text-align: center;
             font-size: 14px;
+            line-height: 40px;
+            cursor: pointer;
         }
     }
 }

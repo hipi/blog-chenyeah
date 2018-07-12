@@ -87,11 +87,11 @@ export default {
 
 <style lang="scss" scoped>
 .cont {
-    background: #fff;
-    border-radius: 10px;
-    text-align: center;
     position: relative;
+    border-radius: 10px;
+    background: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 10px rgba(0, 0, 0, 0.06);
+    text-align: center;
     .music {
         position: absolute;
         top: 10px;
@@ -100,16 +100,16 @@ export default {
     }
     .wy {
         position: absolute;
-        bottom: -52px;
         right: -10px;
+        bottom: -52px;
     }
 }
 .head {
     padding: 28px 28px 10px;
     > a {
-        max-width: 100px;
-        margin: 0 auto;
         display: block;
+        margin: 0 auto;
+        max-width: 100px;
         img {
             display: block;
             margin: 0 auto;
@@ -132,32 +132,31 @@ export default {
 }
 .title {
     position: relative;
-
-    font-size: 20px;
-    line-height: 30px;
     margin: 0 35px;
     color: #333;
+    font-size: 20px;
+    line-height: 30px;
     a {
-        text-decoration: none;
         color: #333;
+        text-decoration: none;
     }
     &::after {
-        content: "";
         position: absolute;
         bottom: -5px;
         left: 0;
-        height: 1px;
         width: 100%;
+        height: 1px;
         background: rgba(0, 0, 0, 0.4);
-        transform: scaleX(1);
+        content: "";
         transition: all 0.2s ease-in;
+        transform: scaleX(1);
     }
 }
 span {
     display: block;
-    font-size: 12px;
-    padding: 0 10px;
     margin: 10px 0 0;
+    padding: 0 10px;
+    font-size: 12px;
 }
 .tik {
     height: 20px;
@@ -167,14 +166,14 @@ span {
     padding: 0;
     font-size: 14px;
     li {
-        list-style: none;
-        border-top: 1px solid #eee;
         position: relative;
+        border-top: 1px solid #eee;
+        list-style: none;
         a {
-            text-decoration: none;
-            color: #888;
-            padding: 10px 0;
             display: block;
+            padding: 10px 0;
+            color: #888;
+            text-decoration: none;
         }
         &:hover {
             .li-sider {
@@ -186,21 +185,21 @@ span {
             color: #fff;
         }
         .li-sider {
-            border-radius: 10px;
-            border: 1px solid #eee;
-            overflow: hidden;
-            display: none;
             position: absolute;
-            border-radius: 10px;
             top: -1px;
             left: 180px;
             z-index: 99;
+            display: none;
+            overflow: hidden;
             width: 180px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            border-radius: 10px;
             background: #fff;
             ul {
-                padding: 0;
-                margin: 0;
                 display: block;
+                margin: 0;
+                padding: 0;
                 li {
                     border-top: 1px solid #eee;
                     &:first-child {
@@ -212,22 +211,23 @@ span {
     }
 }
 .search {
-    border-top: 1px solid #eee;
-    padding: 0;
-    border-radius: 0 0 10px 10px;
     overflow: hidden;
+    padding: 0;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 10px 10px;
     input {
-        font-size: 14px;
+        margin: 0;
         width: 100%;
-        color: #888;
-        border: none;
-        text-align: center;
         height: 40px;
         outline: none;
-        margin: 0;
-        background: #fff;
-        -webkit-appearance: none;
+        border: none;
         border-radius: 0;
+        background: #fff;
+        color: #888;
+        text-align: center;
+        font-size: 14px;
+
+        -webkit-appearance: none;
     }
 }
 @media screen and (max-width: 1024px) {
@@ -235,8 +235,8 @@ span {
         border-radius: 10px 10px 0 0;
         box-shadow: none;
         .wy {
-            bottom: -64px;
             right: 10px;
+            bottom: -64px;
         }
     }
     .tik {
