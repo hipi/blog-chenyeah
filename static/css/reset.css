@@ -5,6 +5,7 @@ html {
     line-height: 1.2;
 
     text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color:transparent;
 }
 body {
     margin: 0;
