@@ -192,17 +192,17 @@ export default {
             text-decoration: none;
             h2 {
                 margin: 0 0 10px;
-                color: #444;
+                color: #000;
                 font-weight: 400;
-                font-size: 24px;
-                line-height: 30px;
+                font-size: 20px;
+                line-height: 20px;
             }
         }
         .info {
             display: block;
             margin: 0;
             min-height: 80px;
-            color: #696969;
+            color: #999;
             letter-spacing: 1px;
             font-size: 14px;
             line-height: 24px;
