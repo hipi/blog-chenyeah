@@ -197,11 +197,6 @@ export default {
                 font-size: 24px;
                 line-height: 30px;
             }
-            &:hover {
-                h2 {
-                    color: #3cafff;
-                }
-            }
         }
         .info {
             display: block;
