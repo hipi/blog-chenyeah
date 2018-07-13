@@ -194,8 +194,11 @@ export default {
                 margin: 0 0 10px;
                 color: #000;
                 font-weight: 400;
-                font-size: 20px;
-                line-height: 20px;
+                font-size: 1.2em;
+                line-height: 1.2em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
         }
         .info {
