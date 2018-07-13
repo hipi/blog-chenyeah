@@ -95,10 +95,10 @@ export default {
 .title {
     margin-top: 0;
     margin-bottom: 10px;
-    color: #444;
+    color: #000;
     text-transform: none;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 42px;
 }
 .breadcrumb {
