@@ -73,14 +73,6 @@ export default {
                 font-size: 14px;
                 line-height: 18px;
             }
-            &:hover {
-                background: #44cef6;
-                color: #fff;
-                text-decoration: none;
-                a {
-                    color: #fff;
-                }
-            }
         }
     }
 }

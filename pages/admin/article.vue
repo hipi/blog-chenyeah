@@ -194,12 +194,6 @@ export default {
             font-weight: 400;
             font-size: 24px;
             line-height: 30px;
-
-            a {
-                &:hover {
-                    color: #3cafff;
-                }
-            }
         }
         .edit {
             color: #20a0ff;
