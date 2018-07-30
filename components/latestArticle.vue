@@ -57,13 +57,16 @@ export default {
         margin: 0;
         padding: 0;
         li {
-            padding: 13px;
+            padding: 8px 10px;
             color: rgba(0, 0, 0, 0.5);
             list-style: none;
             font-size: 14px;
             line-height: 18px;
             -webkit-transition: all 0.1s ease-in;
             transition: all 0.1s ease-in;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
             &:last-child {
                 border-radius: 0 0 10px 10px;
             }
