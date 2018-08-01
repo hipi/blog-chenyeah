@@ -62,7 +62,7 @@ export default {
                 .then(() => {
                     axios
                         .post(
-                            "https://api.yuyehack.cn/blog/article/inset_article.php",
+                            "https://api.chenyeah.com/blog/article/inset_article.php",
                             {
                                 title: this.title,
                                 info: this.info,

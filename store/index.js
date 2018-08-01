@@ -30,7 +30,7 @@ const store = () =>
             async login({ commit }, { user, password }) {
                 try {
                     const { data } = await axios.post(
-                        "https://api.yuyehack.cn/blog/user/sign_in.php",
+                        "https://api.chenyeah.com/blog/user/sign_in.php",
                         { user, password }
                     );
                     commit("SET_TOKEN", data.token);

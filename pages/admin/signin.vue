@@ -54,7 +54,7 @@ export default {
     methods: {
         login({ user, password }) {
             axios
-                .post("https://api.yuyehack.cn/blog/user/sign_in.php", {
+                .post("https://api.chenyeah.com/blog/user/sign_in.php", {
                     user,
                     password
                 })

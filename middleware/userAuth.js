@@ -39,7 +39,7 @@ export default function({ route, req, res, redirect }) {
     redirect(redirectURL);
   } else {
     axios
-      .post("https://api.yuyehack.cn/blog/user/is_sign_in.php", {
+      .post("https://api.chenyeah.com/blog/user/is_sign_in.php", {
         token
       })
       .then(res => {

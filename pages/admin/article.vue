@@ -46,7 +46,7 @@ export default {
         function getArticle() {
             return axios
                 .post(
-                    "https://api.yuyehack.cn/blog/article/get_articlelist.php",
+                    "https://api.chenyeah.com/blog/article/get_articlelist.php",
                     {
                         s: query.s,
                         page: 1,
@@ -100,7 +100,7 @@ export default {
         load(page) {
             axios
                 .post(
-                    "https://api.yuyehack.cn/blog/article/get_articlelist.php",
+                    "https://api.chenyeah.com/blog/article/get_articlelist.php",
                     {
                         s: this.s,
                         page: page,
@@ -147,7 +147,7 @@ export default {
         "$route.query": function(to, from) {
             axios
                 .post(
-                    "https://api.yuyehack.cn/blog/article/get_articlelist.php",
+                    "https://api.chenyeah.com/blog/article/get_articlelist.php",
                     {
                         s: this.$route.query.s,
                         page: 1,

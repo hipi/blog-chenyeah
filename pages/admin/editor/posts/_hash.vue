@@ -38,7 +38,7 @@ export default {
     },
     asyncData(context) {
         return axios
-            .post("https://api.yuyehack.cn/blog/article/get_note.php", {
+            .post("https://api.chenyeah.com/blog/article/get_note.php", {
                 hash: context.params.hash
             })
             .then(res => {
@@ -77,7 +77,7 @@ export default {
                 .then(() => {
                     axios
                         .post(
-                            "https://api.yuyehack.cn/blog/article/update_article.php",
+                            "https://api.chenyeah.com/blog/article/update_article.php",
                             {
                                 hash: this.editor.hash,
                                 title: this.editor.title,

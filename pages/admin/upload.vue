@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         getLists() {
-            axios.post("//api.yuyehack.cn/cos/list.php").then(D => {
+            axios.post("//api.chenyeah.com/cos/list.php").then(D => {
                 this.imgList = D.data;
             });
         },
@@ -44,7 +44,7 @@ export default {
             formdata.append("body", event.target.files[0]);
             // formdata.append("action", "test");
             axios({
-                url: "//api.yuyehack.cn/cos/upload.php",
+                url: "//api.chenyeah.com/cos/upload.php",
                 method: "post",
                 data: formdata,
                 headers: { "Content-Type": "multipart/form-data" }

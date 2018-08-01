@@ -23,7 +23,7 @@ export default {
     mounted() {
         let except = this.$route.params.hash;
         axios
-            .post("https://api.yuyehack.cn/blog/article/get_articlelist.php", {
+            .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
                 page: 1,
                 pageSize: 6,
                 except: except
