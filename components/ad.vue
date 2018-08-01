@@ -18,8 +18,8 @@ export default {
                     title: "tencent",
                     imgUrl:
                         "https://wx1.sinaimg.cn/large/0079V2lRgy1ft5yx05491j30dw08c76w.jpg",
-                    url:
-                        "https://cloud.tencent.com/redirect.php?redirect=1010&cps_key=e5d789ce9240a104fbcd388b3916604f"
+                    //url:"https://cloud.tencent.com/redirect.php?redirect=1010&cps_key=e5d789ce9240a104fbcd388b3916604f",
+                    url:"https://cloud.tencent.com/act/campus/group/detail?fromSource=gwzcw.1075735.1075735.1075735&group=40671"
                 },
                 {
                     title: "aliyun",
