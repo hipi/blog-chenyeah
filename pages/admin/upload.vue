@@ -12,8 +12,8 @@
         </form>
       </div>
       <div class="list" v-for="(n,i) in imgList" :key="i">
-        <a :href="`//cloud.yuyehack.cn/${n.Key}`"><img :src="`//cloud.yuyehack.cn/${n.Key}`" alt=""></a>
-        <input type="text" :value="`//cloud.yuyehack.cn/${n.Key}`">
+        <a :href="`//cloud.chenyeah.com/${n.Key}`"><img :src="`//cloud.chenyeah.com/${n.Key}`" alt=""></a>
+        <input type="text" :value="`//cloud.chenyeah.com/${n.Key}`">
       </div>
     </div>
   </div>
