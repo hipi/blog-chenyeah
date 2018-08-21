@@ -33,6 +33,9 @@
                     <nuxt-link :to="`/blog/archives/${n.tag}`" v-if="n.tag" class="tag">
                         <i class="iconfont icon-label"></i>{{n.tag}}
                     </nuxt-link>
+                    <span class="pv">
+                        阅读&nbsp;&nbsp;{{n.pv}}
+                    </span>
                 </div>
             </div>
             <div v-if="list.length==0" class="nodata">
@@ -46,206 +49,203 @@
     </div>
 </template>
 <script>
-import axios from "axios";
+import axios from "axios"
 export default {
-    layout: "blog",
-    async asyncData({ query }) {
-        function getArticle() {
-            return axios
-                .post(
-                    "https://api.chenyeah.com/blog/article/get_articlelist.php",
-                    {
-                        s: query.s,
-                        page: 1,
-                        pageSize: 8
-                    }
-                )
-                .then(res => {
-                    return {
-                        list: res.data.list,
-                        totalPages: res.data.totalPages
-                    };
-                })
-                .catch(e => {
-                    // context.error({ statusCode: 404, message: "出错啦" });
-                    return { list: [{ title: "出错啦", info: "请检查接口" }] };
-                });
-        }
-        let data = await getArticle();
-        return data;
-    },
-    data() {
-        return {
-            currentPage: 1,
-            isLoad: true
-        };
-    },
-
-    computed: {
-        s: function() {
-            return this.$route.query.s;
-        }
-    },
-    methods: {
-        replaceBrokenImg() {
-            this.list.forEach((n, i) => {
-                let img = new Image();
-                img.onerror = function() {
-                    n.imgIsBroken = true;
-                    n.cover = "/img/blog/article-nopic.jpeg";
-                };
-                img.src = n.cover;
-            });
-        },
-        load(page) {
-            axios
-                .post(
-                    "https://api.chenyeah.com/blog/article/get_articlelist.php",
-                    {
-                        s: this.s,
-                        page: page,
-                        pageSize: 8
-                    }
-                )
-                .then(res => {
-                    let newList = res.data.list;
-                    this.list = [...this.list, ...newList];
-                    this.isLoad = true;
-                    this.currentPage++;
-                    this.replaceBrokenImg();
-                });
-        },
-        eventListen() {
-            let ele = document.documentElement;
-            if (ele.clientWidth > 1024) {
-                if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
-                    if (this.currentPage < this.totalPages) {
-                        if (this.isLoad) {
-                            this.isLoad = false;
-                            this.load(this.currentPage + 1);
-                        }
-                    }
-                }
-            }
-        },
-        mload() {
-            let vm = this;
-            if (vm.currentPage < vm.totalPages) {
-                if (vm.isLoad) {
-                    vm.isLoad = false;
-                    vm.load(vm.currentPage + 1);
-                }
-            }
-        }
-    },
-    mounted() {
-        this.replaceBrokenImg();
-        let vm = this;
-        let ele = document.documentElement;
-        if (ele.clientWidth > 1024) {
-            window.addEventListener("scroll", vm.eventListen);
-        }
-    },
-    beforeDestroy() {
-        let vm = this;
-        window.removeEventListener("scroll", vm.eventListen);
-    },
-    watch: {
-        "$route.query": function(to, from) {
-            axios
-                .post(
-                    "https://api.chenyeah.com/blog/article/get_articlelist.php",
-                    {
-                        s: this.$route.query.s,
-                        page: 1,
-                        pageSize: 8
-                    }
-                )
-                .then(res => {
-                    this.list = res.data.list;
-                    this.totalPages = res.data.totalPages;
-                });
-        }
+  layout: "blog",
+  async asyncData({ query }) {
+    function getArticle() {
+      return axios
+        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+          s: query.s,
+          page: 1,
+          pageSize: 10
+        })
+        .then(res => {
+          return {
+            list: res.data.list,
+            totalPages: res.data.totalPages
+          }
+        })
+        .catch(e => {
+          // context.error({ statusCode: 404, message: "出错啦" });
+          return { list: [{ title: "出错啦", info: "请检查接口" }] }
+        })
     }
-};
+    let data = await getArticle()
+    return data
+  },
+  data() {
+    return {
+      currentPage: 1,
+      isLoad: true,
+      pageSize: 10
+    }
+  },
+
+  computed: {
+    s: function() {
+      return this.$route.query.s
+    }
+  },
+  methods: {
+    replaceBrokenImg() {
+      this.list.forEach((n, i) => {
+        let img = new Image()
+        img.onerror = function() {
+          n.imgIsBroken = true
+          n.cover = "/img/blog/article-nopic.jpeg"
+        }
+        img.src = n.cover
+      })
+    },
+    load(page) {
+      axios
+        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+          s: this.s,
+          page: page,
+          pageSize: this.pageSize
+        })
+        .then(res => {
+          let newList = res.data.list
+          this.list = [...this.list, ...newList]
+          this.isLoad = true
+          this.currentPage++
+          this.replaceBrokenImg()
+        })
+    },
+    eventListen() {
+      let ele = document.documentElement
+      if (ele.clientWidth > 1024) {
+        if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
+          if (this.currentPage < this.totalPages) {
+            if (this.isLoad) {
+              this.isLoad = false
+              this.load(this.currentPage + 1)
+            }
+          }
+        }
+      }
+    },
+    mload() {
+      let vm = this
+      if (vm.currentPage < vm.totalPages) {
+        if (vm.isLoad) {
+          vm.isLoad = false
+          vm.load(vm.currentPage + 1)
+        }
+      }
+    }
+  },
+  mounted() {
+    this.replaceBrokenImg()
+    let vm = this
+    let ele = document.documentElement
+    if (ele.clientWidth > 1024) {
+      window.addEventListener("scroll", vm.eventListen)
+    }
+  },
+  beforeDestroy() {
+    let vm = this
+    window.removeEventListener("scroll", vm.eventListen)
+  },
+  watch: {
+    "$route.query": function(to, from) {
+      axios
+        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+          s: this.$route.query.s,
+          page: 1,
+          pageSize: 8
+        })
+        .then(res => {
+          this.list = res.data.list
+          this.totalPages = res.data.totalPages
+          this.currentPage = 1
+        })
+    }
+  }
+}
 </script>
 <style lang="less" scoped>
 .ht {
-    padding: 0 30px;
-    height: 56px;
-    border-bottom: 1px solid #eee;
-    background-image: linear-gradient(
-        rgba(200, 200, 200, 0),
-        rgba(200, 200, 200, 0.12)
-    );
-    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.4);
-    line-height: 56px;
+  padding: 0 30px;
+  height: 56px;
+  border-bottom: 1px solid #eee;
+  background-image: linear-gradient(
+    rgba(200, 200, 200, 0),
+    rgba(200, 200, 200, 0.12)
+  );
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 56px;
 }
 .content {
-    padding: 0 30px;
-    .list {
-        padding: 30px 0;
-        border-bottom: 1px solid #eee;
-        a {
-            color: #333;
-            text-decoration: none;
-            h2 {
-                margin: 0 0 10px;
-                color: #000;
-                font-weight: 400;
-                font-size: 1.2em;
-                line-height: 1.2em;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-        }
-        .info {
-            display: block;
-            margin: 0;
-            min-height: 80px;
-            color: #999;
-            letter-spacing: 1px;
-            font-size: 14px;
-            line-height: 24px;
-            img {
-                float: right;
-                margin-left: 10px;
-                max-width: 180px;
-                max-height: 80px;
-                border-radius: 4px;
-            }
-        }
+  padding: 0 30px;
+  .list {
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+    a {
+      color: #333;
+      text-decoration: none;
+      h2 {
+        margin: 0 0 10px;
+        color: #000;
+        font-weight: 400;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .info {
+      display: block;
+      margin: 0;
+      min-height: 80px;
+      color: #999;
+      letter-spacing: 1px;
+      font-size: 14px;
+      line-height: 24px;
+      img {
+        float: right;
+        margin-left: 10px;
+        max-width: 180px;
+        max-height: 80px;
+        border-radius: 4px;
+      }
+    }
 
-        .meta {
-            margin-top: 10px;
-            color: #999;
-            .tag {
-                margin-left: 10px;
-                font-size: 14px;
-            }
-        }
+    .meta {
+      margin-top: 10px;
+      color: #999;
+      .tag {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+      .pv {
+        font-size: 12px;
+        margin-left: 12px;
+      }
     }
-    .nodata {
-        color: #999;
-        text-align: center;
-        line-height: 100px;
-    }
-    .mloading {
-        display: none;
-    }
+  }
+  .nodata {
+    color: #999;
+    text-align: center;
+    line-height: 100px;
+  }
+  .mloading {
+    display: none;
+  }
 }
 @media screen and (max-width: 1024px) {
-    .content {
-        .mloading {
-            display: block;
-            text-align: center;
-            font-size: 14px;
-            line-height: 40px;
-            cursor: pointer;
-        }
+  .content {
+    .mloading {
+      display: block;
+      text-align: center;
+      font-size: 14px;
+      line-height: 40px;
+      cursor: pointer;
     }
+  }
 }
 </style>
 

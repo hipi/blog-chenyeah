@@ -3,12 +3,12 @@
     <i @click="isMusic=!isMusic" class="music iconfont icon-music"></i>
     <audio v-if="isMusic" loop autoplay src="https://music.163.com/song/media/outer/url?id=562594322.mp3"></audio>
     <div class="head">
-      <nuxt-link to='/blog'>
+      <nuxt-link to='/'>
         <img :class="{play:isMusic}" src="https://www.gravatar.com/avatar/40206d98ff6e85da457c341e4a4ea437" alt="">
       </nuxt-link>
     </div>
     <div class="title">
-      <nuxt-link to="/blog">羽叶</nuxt-link>
+      <nuxt-link to="/admin">羽叶</nuxt-link>
     </div>
     <span>羽叶のBlog</span>
     <div class="tik">

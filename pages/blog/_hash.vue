@@ -13,6 +13,9 @@
                 <i class="iconfont icon-brush"></i>
                 {{asyncData.modify_time}}
             </span>
+            <span class="pv">
+                阅读&nbsp;&nbsp;{{asyncData.pv}}
+            </span>
         </div>
         <div class="cover">
             <img ref="cover" :src="asyncData.cover" alt="">
@@ -39,9 +42,9 @@
     </div>
 </template>
 <script>
-import marked from 'marked';
-import axios from 'axios';
-import gitment from '~/components/gitment';
+import marked from "marked";
+import axios from "axios";
+import gitment from "~/components/gitment";
 export default {
   validate({ params }) {
     return Boolean(params.hash); //路由参数校验
@@ -52,18 +55,18 @@ export default {
       //titleTemplate: "%s - 羽叶丶"
       meta: [
         {
-          hid: 'description',
-          name: 'description',
+          hid: "description",
+          name: "description",
           content: this.asyncData.info
         }
       ]
     };
   },
-  transition: 'blog',
-  layout: 'blog',
+  transition: "blog",
+  layout: "blog",
   asyncData(context) {
     return axios
-      .post('https://api.chenyeah.com/blog/article/get_note.php', {
+      .post("https://api.chenyeah.com/blog/article/get_note.php", {
         hash: context.params.hash
       })
       .then(res => {
@@ -72,7 +75,7 @@ export default {
         return { asyncData: DATA };
       })
       .catch(e => {
-        context.error({ statusCode: 404, message: '笔记不存在' });
+        context.error({ statusCode: 404, message: "笔记不存在" });
       });
   },
   data() {
@@ -90,13 +93,13 @@ export default {
         return document.querySelectorAll(dom);
       };
       if (!this.isClear) {
-        select('#main > div.my')[0].style.display = 'none';
-        select('#main > div.sidebar')[0].style.display = 'none';
-        select('#main > div.container')[0].style.maxWidth = '100%';
+        select("#main > div.my")[0].style.display = "none";
+        select("#main > div.sidebar")[0].style.display = "none";
+        select("#main > div.container")[0].style.maxWidth = "100%";
       } else {
-        select('#main > div.my')[0].style.display = 'block';
-        select('#main > div.sidebar')[0].style.display = 'block';
-        select('#main > div.container')[0].style.maxWidth = '800px';
+        select("#main > div.my")[0].style.display = "block";
+        select("#main > div.sidebar")[0].style.display = "block";
+        select("#main > div.container")[0].style.maxWidth = "800px";
       }
       this.isClear = !this.isClear;
     }
@@ -104,26 +107,26 @@ export default {
   computed: {},
   mounted() {
     let _img = this.$refs.cover;
-    if (!_img.src || _img.src == '') {
-      _img.src = '/img/blog/article-nopic.jpeg';
-      _img.setAttribute('class', 'broken-img');
+    if (!_img.src || _img.src == "") {
+      _img.src = "/img/blog/article-nopic.jpeg";
+      _img.setAttribute("class", "broken-img");
     } else {
       _img.onerror = function() {
-        if (!_img.classList.contains('broken-img')) {
-          _img.setAttribute('class', 'broken-img');
-          _img.src = '/img/blog/article-nopic.jpeg';
+        if (!_img.classList.contains("broken-img")) {
+          _img.setAttribute("class", "broken-img");
+          _img.src = "/img/blog/article-nopic.jpeg";
         }
       };
     }
-    this.isPhone = window.navigator.userAgent.indexOf('Mobile') >= 0;
+    this.isPhone = window.navigator.userAgent.indexOf("Mobile") >= 0;
   },
   beforeDestroy() {
     const select = dom => {
       return document.querySelectorAll(dom);
     };
-    select('#main > div.my')[0].style.display = 'block';
-    select('#main > div.sidebar')[0].style.display = 'block';
-    select('#main > div.container')[0].style.maxWidth = '800px';
+    select("#main > div.my")[0].style.display = "block";
+    select("#main > div.sidebar")[0].style.display = "block";
+    select("#main > div.container")[0].style.maxWidth = "800px";
   }
 };
 </script>
@@ -134,15 +137,20 @@ export default {
 .title {
   margin-top: 0;
   margin-bottom: 10px;
-  color: #000;
+  color: #333;
   text-transform: none;
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 24px;
   line-height: 42px;
 }
 .breadcrumb {
   margin-bottom: 20px;
   font-size: 16px;
+  .pv {
+    font-size: 12px;
+    margin-left: 10px;
+    color: #999;
+  }
 }
 .cover {
   overflow: hidden;
@@ -195,14 +203,14 @@ export default {
   color: #24292e;
   word-wrap: break-word;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.5;
   line-height: 1.5;
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  @import '~assets/css/markdown.less';
+  @import "~assets/css/markdown.less";
 }
 </style>
 
