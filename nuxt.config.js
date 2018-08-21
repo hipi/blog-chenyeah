@@ -38,7 +38,10 @@ module.exports = {
             // { rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" },
             { rel: "stylesheet", href: "/css/reset.css" },
             { rel: "stylesheet", href: "/css/iconfont.css" }
-        ]
+        ],
+        script: [
+     		{src: 'https://hm.baidu.com/hm.js?4acd4332b8b5641542150bb2453c8450'},/*引入百度统计的js*/
+    	]
     },
     css: [
         // 加载一个 过渡 效果
@@ -47,9 +50,10 @@ module.exports = {
     loading: { color: "#3cafff" },
     plugins: [
         { src: "~plugins/main", ssr: true },
-        { src: "~plugins/pv", ssr: false },
+        { src: "~plugins/marked", ssr: true },
         { src: "~plugins/utils", ssr: false },
-        { src: "~plugins/marked", ssr: true }
+        { src: "~plugins/pv", ssr: false },
+        { src: "~plugins/baidupv", ssr: false }
     ],
     build: {
         extend(config, { isDev, isClient }) {
