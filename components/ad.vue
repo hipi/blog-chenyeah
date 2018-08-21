@@ -16,8 +16,8 @@ export default {
             adData: [
                 {
                     title: "tencent",
-                    imgUrl:"https://wx1.sinaimg.cn/large/0079V2lRgy1ft5yx05491j30dw08c76w.jpg",
-                    url:"https://cloud.tencent.com/redirect.php?redirect=1010&cps_key=e5d789ce9240a104fbcd388b3916604f"
+                    imgUrl:"https://wx1.sinaimg.cn/large/0079V2lRgy1fucnbu2k9vj30fk08c751.jpg",
+                    url:"https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=e5d789ce9240a104fbcd388b3916604f&from=console"
                     
                 },
                 {
