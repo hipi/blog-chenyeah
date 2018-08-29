@@ -5,14 +5,14 @@
 </template>
 <script>
 export default {
-    layout: "admin",
-    data() {
-        return {};
-    },
-    computed: {},
-    methods: {},
-    mounted() {},
-    watch: {}
+  layout: "admin",
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+  mounted() {},
+  watch: {}
 };
 </script>
 <style lang="less" scoped>

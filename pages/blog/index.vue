@@ -49,121 +49,120 @@
     </div>
 </template>
 <script>
-import axios from "axios"
 export default {
   layout: "blog",
-  async asyncData({ query }) {
+  async asyncData({ query, app }) {
     function getArticle() {
-      return axios
-        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+      return app.$axios
+        .$post("/api/blog/article/get_articlelist.php", {
           s: query.s,
           page: 1,
           pageSize: 10
         })
         .then(res => {
           return {
-            list: res.data.list,
-            totalPages: res.data.totalPages
-          }
+            list: res.list,
+            totalPages: res.totalPages
+          };
         })
         .catch(e => {
           // context.error({ statusCode: 404, message: "出错啦" });
-          return { list: [{ title: "出错啦", info: "请检查接口" }] }
-        })
+          return { list: [{ title: "出错啦", info: "请检查接口" }] };
+        });
     }
-    let data = await getArticle()
-    return data
+    let data = await getArticle();
+    return data;
   },
   data() {
     return {
       currentPage: 1,
       isLoad: true,
       pageSize: 10
-    }
+    };
   },
 
   computed: {
     s: function() {
-      return this.$route.query.s
+      return this.$route.query.s;
     }
   },
   methods: {
     replaceBrokenImg() {
       this.list.forEach((n, i) => {
-        let img = new Image()
+        let img = new Image();
         img.onerror = function() {
-          n.imgIsBroken = true
-          n.cover = "/img/blog/article-nopic.jpeg"
-        }
-        img.src = n.cover
-      })
+          n.imgIsBroken = true;
+          n.cover = "/img/blog/article-nopic.jpeg";
+        };
+        img.src = n.cover;
+      });
     },
     load(page) {
-      axios
-        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+      this.$axios
+        .$post("/api/blog/article/get_articlelist.php", {
           s: this.s,
           page: page,
           pageSize: this.pageSize
         })
         .then(res => {
-          let newList = res.data.list
-          this.list = [...this.list, ...newList]
-          this.isLoad = true
-          this.currentPage++
-          this.replaceBrokenImg()
-        })
+          let newList = res.list;
+          this.list = [...this.list, ...newList];
+          this.isLoad = true;
+          this.currentPage++;
+          this.replaceBrokenImg();
+        });
     },
     eventListen() {
-      let ele = document.documentElement
+      let ele = document.documentElement;
       if (ele.clientWidth > 1024) {
         if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
           if (this.currentPage < this.totalPages) {
             if (this.isLoad) {
-              this.isLoad = false
-              this.load(this.currentPage + 1)
+              this.isLoad = false;
+              this.load(this.currentPage + 1);
             }
           }
         }
       }
     },
     mload() {
-      let vm = this
+      let vm = this;
       if (vm.currentPage < vm.totalPages) {
         if (vm.isLoad) {
-          vm.isLoad = false
-          vm.load(vm.currentPage + 1)
+          vm.isLoad = false;
+          vm.load(vm.currentPage + 1);
         }
       }
     }
   },
   mounted() {
-    this.replaceBrokenImg()
-    let vm = this
-    let ele = document.documentElement
+    this.replaceBrokenImg();
+    let vm = this;
+    let ele = document.documentElement;
     if (ele.clientWidth > 1024) {
-      window.addEventListener("scroll", vm.eventListen)
+      window.addEventListener("scroll", vm.eventListen);
     }
   },
   beforeDestroy() {
-    let vm = this
-    window.removeEventListener("scroll", vm.eventListen)
+    let vm = this;
+    window.removeEventListener("scroll", vm.eventListen);
   },
   watch: {
     "$route.query": function(to, from) {
-      axios
-        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+      this.$axios
+        .$post("/api/blog/article/get_articlelist.php", {
           s: this.$route.query.s,
           page: 1,
           pageSize: 8
         })
         .then(res => {
-          this.list = res.data.list
-          this.totalPages = res.data.totalPages
-          this.currentPage = 1
-        })
+          this.list = res.list;
+          this.totalPages = res.totalPages;
+          this.currentPage = 1;
+        });
     }
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .ht {

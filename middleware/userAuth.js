@@ -1,5 +1,4 @@
 import Cookie from "js-cookie"
-import axios from "axios"
 //获取服务端cookie
 let getcookiesInServer = req => {
     let service_cookie = {}
@@ -15,7 +14,7 @@ let getcookiesInServer = req => {
 let getcookiesInClient = key => {
     return Cookie.get(key) ? Cookie.get(key) : ""
 }
-export default function({ route, req, res, redirect }) {
+export default function({ route, req, res, redirect,$axios }) {
     let isClient = process.client
     let isServer = process.server
     let redirectURL = "/admin/signin"
@@ -40,12 +39,12 @@ export default function({ route, req, res, redirect }) {
 
     return new Promise((resolve, reject) => {
         if (token) {
-            axios
-                .post("https://api.chenyeah.com/blog/user/is_sign_in.php", {
+            $axios
+                .$post("/api/blog/user/is_sign_in.php", {
                     token
                 })
                 .then(res => {
-                    res.data.code != 0 && redirect(redirectURL)
+                    res.code != 0 && redirect(redirectURL)
                     resolve()
                 })
         } else {

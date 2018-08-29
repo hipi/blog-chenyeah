@@ -44,86 +44,85 @@
     </div>
 </template>
 <script>
-import axios from "axios"
 export default {
   layout: "admin",
-  async asyncData({ query }) {
+  async asyncData({ query, app }) {
     function getArticle() {
-      return axios
-        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+      return app.$axios
+        .$post("/api/blog/article/get_articlelist.php", {
           s: query.s,
           page: 1,
           pageSize: 8
         })
         .then(res => {
           return {
-            list: res.data.list,
-            totalPages: res.data.totalPages
-          }
+            list: res.list,
+            totalPages: res.totalPages
+          };
         })
         .catch(e => {
           // context.error({ statusCode: 404, message: "出错啦" });
-          return { list: [{ title: "出错啦", info: "请检查接口" }] }
-        })
+          return { list: [{ title: "出错啦", info: "请检查接口" }] };
+        });
     }
-    let data = await getArticle()
-    return data
+    let data = await getArticle();
+    return data;
   },
   data() {
     return {
       currentPage: 1,
       isLoad: true,
       searchKey: ""
-    }
+    };
   },
 
   computed: {
     s: function() {
-      return this.$route.query.s
+      return this.$route.query.s;
     }
   },
   methods: {
     replaceBrokenImg() {
       this.list.forEach((n, i) => {
-        let img = new Image()
+        let img = new Image();
         img.onerror = function() {
-          n.imgIsBroken = true
-          n.cover = "/img/blog/article-nopic.jpeg"
-        }
-        img.src = n.cover
-      })
+          n.imgIsBroken = true;
+          n.cover = "/img/blog/article-nopic.jpeg";
+        };
+        img.src = n.cover;
+      });
     },
     deleteArticle() {
       this.$confirm("确认删除此文章？")
         .then(() => {
           // TODO: 删除API
         })
-        .catch(() => {})
+        .catch(() => {});
     },
     load(page) {
-      axios
-        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+      this.$axios
+        .$post("/api/blog/article/get_articlelist.php", {
           s: this.s,
           page: page,
           pageSize: 8
         })
         .then(res => {
-          let newList = res.data.list
-          this.list = [...this.list, ...newList]
-          this.isLoad = true
-          this.currentPage++
-          this.replaceBrokenImg()
-        })
+          let newList = res.list;
+          this.list = [...this.list, ...newList];
+          this.isLoad = true;
+          this.currentPage++;
+          this.replaceBrokenImg();
+        });
     },
     eventListen() {
-      let ele = document.querySelector(".container")
+      let ele = document.querySelector(".container");
       if (ele.clientWidth > 1024) {
         if (ele.scrollHeight - ele.scrollTop - ele.clientHeight < 30) {
-          console.log("in", this.currentPage, this.totalPages)
+          console.log("in", this.currentPage, this.totalPages);
           if (this.currentPage < this.totalPages) {
             if (this.isLoad) {
-              this.isLoad = false
-              this.load(this.currentPage + 1)
+              this.isLoad = false;
+              this.load(this.currentPage + 1);
             }
           }
         }
@@ -133,39 +132,39 @@ export default {
       this.$router.replace({
         path: "/admin/article",
         query: { s: this.searchKey }
-      })
+      });
     }
   },
   mounted() {
-    this.replaceBrokenImg()
-    let vm = this
-    let ele = document.querySelector(".container")
+    this.replaceBrokenImg();
+    let vm = this;
+    let ele = document.querySelector(".container");
     document
       .querySelectorAll(".container")[0]
-      .addEventListener("scroll", vm.eventListen)
+      .addEventListener("scroll", vm.eventListen);
   },
   beforeDestroy() {
-    let vm = this
+    let vm = this;
     document
       .querySelectorAll(".container")[0]
-      .removeEventListener("scroll", vm.eventListen)
+      .removeEventListener("scroll", vm.eventListen);
   },
   watch: {
     "$route.query": function(to, from) {
-      axios
-        .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+      this.$axios
+        .$post("/api/blog/article/get_articlelist.php", {
           s: this.$route.query.s,
           page: 1,
           pageSize: 8
         })
         .then(res => {
-          this.list = res.data.list
-          this.totalPages = res.data.totalPages
-          this.currentPage = 1
-        })
+          this.list = res.list;
+          this.totalPages = res.totalPages;
+          this.currentPage = 1;
+        });
     }
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .ht {

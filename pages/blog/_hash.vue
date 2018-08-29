@@ -43,7 +43,7 @@
 </template>
 <script>
 import marked from "marked";
-import axios from "axios";
+
 import gitment from "~/components/gitment";
 export default {
   validate({ params }) {
@@ -65,16 +65,17 @@ export default {
   transition: "blog",
   layout: "blog",
   asyncData(context) {
-    return axios
-      .post("https://api.chenyeah.com/blog/article/get_note.php", {
+    return context.app.$axios
+      .$post("/api/blog/article/get_note.php", {
         hash: context.params.hash
       })
       .then(res => {
-        let DATA = res.data.data;
+        let DATA = res.data;
         DATA.content = marked(DATA.content);
         return { asyncData: DATA };
       })
       .catch(e => {
+        console.log(e);
         context.error({ statusCode: 404, message: "笔记不存在" });
       });
   },

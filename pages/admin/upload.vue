@@ -19,7 +19,6 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 export default {
     layout: "admin",
     head() {
@@ -35,21 +34,21 @@ export default {
     },
     methods: {
         getLists() {
-            axios.post("//api.chenyeah.com/cos/list.php").then(D => {
-                this.imgList = D.data;
+            this.$axios.$post("/api/cos/list.php").then(D => {
+                this.imgList = D;
             });
         },
         upload() {
             let formdata = new FormData();
             formdata.append("body", event.target.files[0]);
             // formdata.append("action", "test");
-            axios({
-                url: "//api.chenyeah.com/cos/upload.php",
+            this.$axios({
+                url: "/api/cos/upload.php",
                 method: "post",
                 data: formdata,
                 headers: { "Content-Type": "multipart/form-data" }
             }).then(res => {
-                if (res.data.code == 0) {
+                if (res.code == 0) {
                     this.getLists();
                 }
             });

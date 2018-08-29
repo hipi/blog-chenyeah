@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
 Vue.use(Vuex);
 
 // window.fetch() 的 Polyfill
@@ -30,7 +29,7 @@ const store = () =>
             async login({ commit }, { user, password }) {
                 try {
                     const { data } = await axios.post(
-                        "https://api.chenyeah.com/blog/user/sign_in.php",
+                        "/api/blog/user/sign_in.php",
                         { user, password }
                     );
                     commit("SET_TOKEN", data.token);

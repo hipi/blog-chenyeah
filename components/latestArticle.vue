@@ -13,7 +13,6 @@
     </div>
 </template>
 <script>
-import axios from "axios";
 export default {
     data() {
         return {
@@ -22,14 +21,14 @@ export default {
     },
     mounted() {
         let except = this.$route.params.hash;
-        axios
-            .post("https://api.chenyeah.com/blog/article/get_articlelist.php", {
+        this.$axios
+            .$post("/api/blog/article/get_articlelist.php", {
                 page: 1,
                 pageSize: 6,
                 except: except
             })
             .then(res => {
-                this.list = res.data.list;
+                this.list = res.list;
             });
     }
 };

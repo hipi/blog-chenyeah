@@ -33,7 +33,6 @@
 </template>
 <script>
 import Cookie from "js-cookie";
-import axios from "axios";
 export default {
     data() {
         return {
@@ -53,19 +52,19 @@ export default {
     },
     methods: {
         login({ user, password }) {
-            axios
-                .post("https://api.chenyeah.com/blog/user/sign_in.php", {
+            this.$axios
+                .$post("/api/blog/user/sign_in.php", {
                     user,
                     password
                 })
                 .then(res => {
-                    if (res.data.code == 0) {
+                    if (res.code == 0) {
                         //将服务端的token存入cookie当中
-                        Cookie.set("token", res.data.token, { expires: 7 });
+                        Cookie.set("token", res.token, { expires: 7 });
                         //返回上一页
                         this.$router.replace(this.redirectURL);
                     } else {
-                        alert(res.data.msg);
+                        alert(res.msg);
                     }
                 });
         }
