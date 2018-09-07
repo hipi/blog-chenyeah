@@ -29,6 +29,9 @@
                 </div>
             </li>
             <li>
+                <a href="//fe.chenyeah.com" target="_blank">知识图谱</a>
+            </li>
+            <li>
                 <nuxt-link to="/blog">关于</nuxt-link>
                 <div class="li-sider">
                     <ul>
@@ -145,6 +148,7 @@ export default {
   margin: 0 35px;
   color: #333;
   font-size: 20px;
+  font-weight: 600;
   line-height: 30px;
   a {
     color: #333;
@@ -182,7 +186,7 @@ span {
     a {
       display: block;
       padding: 10px 0;
-      color: #888;
+      color: #5f5f5f;
       text-decoration: none;
     }
     &:hover {
@@ -191,8 +195,8 @@ span {
       }
     }
     a:hover {
-      background: #44cef6;
-      color: #fff;
+      color: #1aad16;
+      background: #f4f4f4;
     }
     .li-sider {
       position: absolute;

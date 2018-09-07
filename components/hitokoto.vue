@@ -58,7 +58,6 @@ export default {
 }
 .content {
   padding: 20px 10px;
-  color: #444;
   font-size: 14px;
   line-height: 18px;
 }

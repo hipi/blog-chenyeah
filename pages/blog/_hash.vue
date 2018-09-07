@@ -201,7 +201,7 @@ export default {
 <style lang="less">
 #article {
   background: #fff;
-  color: #24292e;
+  color: #5f5f5f;
   word-wrap: break-word;
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,

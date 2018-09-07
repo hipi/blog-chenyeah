@@ -187,10 +187,10 @@ export default {
       text-decoration: none;
       h2 {
         margin: 0 0 10px;
-        color: #000;
+        color: #5f5f5f;
         font-weight: 400;
-        font-size: 1.2em;
-        line-height: 1.2em;
+        font-size: 1.3em;
+        line-height: 1.3em;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -200,8 +200,7 @@ export default {
       display: block;
       margin: 0;
       min-height: 80px;
-      color: #999;
-      letter-spacing: 1px;
+      color: rgba(0, 0, 0, 0.6);
       font-size: 14px;
       line-height: 24px;
       img {

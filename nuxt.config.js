@@ -35,7 +35,6 @@ module.exports = {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css?family=Open+Sans"
             },
-            // { rel: "stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" },
             { rel: "stylesheet", href: "/css/reset.css" },
             { rel: "stylesheet", href: "/css/iconfont.css" }
         ],
@@ -55,7 +54,7 @@ module.exports = {
         { src: "~plugins/main", ssr: true },
         { src: "~plugins/marked", ssr: true },
         { src: "~plugins/utils", ssr: false },
-        { src: "~plugins/pv", ssr: false },
+        //{ src: "~plugins/pv", ssr: false },
         { src: "~plugins/baidupv", ssr: false }
     ],
     build: {
