@@ -50,11 +50,12 @@ export default {
             //this.playsrc ="http://zs.lzonel.cn/vip/?url="+this.url;
         },
         play() {
-            if (this.url !== "") {
+            const reg=/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
+            if (this.url !== "" && reg.test(this.url)) {
                 this.start(url);
                 this.isplay = true;
             } else {
-                alert("请输入链接地址");
+                alert("请输入正确的链接地址");
             }
         }
     },
